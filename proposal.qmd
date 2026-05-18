@@ -1,0 +1,33 @@
+---
+title: "Project Proposal"
+author:
+  - "Group Member 1"
+  - "Group Member 2"
+  - "Group Member 3"
+date: today
+---
+
+## Dataset
+
+<!-- Describe the dataset: source, licence, dimensions, key variables. -->
+
+## Research Questions
+
+1.
+2.
+
+## Initial EDA
+
+```{r}
+#| label: load-data
+library(tidyverse)
+library(here)
+
+# data <- read_csv(here("data", "raw", "data.csv"))
+```
+
+<!-- Add 2–3 exploratory plots and a brief commentary on what you observe. -->
+
+## Analysis Plan
+
+<!-- Outline the methods you plan to use to answer your research questions. -->

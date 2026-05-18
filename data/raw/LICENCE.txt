@@ -1,0 +1,10 @@
+Dataset: [Dataset name]
+Source:  [URL]
+Licence: [e.g. Creative Commons Attribution 4.0 International (CC BY 4.0)]
+         [Licence URL]
+
+Downloaded: [YYYY-MM-DD]
+Downloaded by: [Name]
+
+Notes:
+  [Any restrictions, attribution requirements, or caveats]

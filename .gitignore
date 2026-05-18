@@ -1,0 +1,12 @@
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# Quarto build artefacts
+/.quarto/
+_site/
+
+# OS
+.DS_Store
+Thumbs.db
