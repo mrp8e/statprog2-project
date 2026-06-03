@@ -7,3 +7,8 @@ library(here)
 data <- read_csv(here("data", "processed", "data_clean.csv"))
 
 # TODO: add analysis
+
+library(naniar)
+
+miss_var_summary(data)
+vis_miss(data)

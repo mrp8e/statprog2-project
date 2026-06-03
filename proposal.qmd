@@ -4,6 +4,7 @@ author:
   - "Group Member 1"
   - "Group Member 2"
   - "Group Member 3"
+  - "Group Member 4"
 date: today
 ---
 
@@ -11,20 +12,111 @@ date: today
 
 <!-- Describe the dataset: source, licence, dimensions, key variables. -->
 
-## Research Questions
+### Source
 
-1.
-2.
+The dataset used in this project is provided by the Bureau of Transportation Statistics (BTS), part of the U.S. Department of Transportation (USDOT). It contains information on flight delays and their causes in the United States.
+
+
+### Licence
+
+As a U.S. federal government dataset, it is released into the public domain (U.S government Data). This means we are allowed to download, analyse, modify, and publish results based on the dataset.
+
+
+### Structure of the dataset
+
+The dataset contains **424578 rows and 21 columns**
+
+Each row represents aggregated flight delay statistics for a specific airline, airport and month.
+
+### key variables
+- carrier, carrier_name
+- airport, airport_name
+- month
+- arr_flights
+- arr_del15
+- arr_delay
+- carrier_delay, weather_delay, nas_delay, security_delay, late_aircraft_delay
+
+
+## Research Questions
+ 
+
+1. How do flight delays vary across airlines, airports and over time? (Descriptive)
+
+2. Is there a relationship between the number of flights (arr_flights) and the number of delayed flights (arr_del15)? (Exploratory)
+
+3. Can we predict total arrival delays based on flight volume and delay causes? (Predictive)
+
+
+## Context and Audience
+
+This analysis is conducted in an academic setting as part of the Advanced Statistical Programming course. 
+
+The primary target audience is lecturers.
+
+The results are presented as an interactive quarto report that combines code, visualisations and text for data storytelling and reproducible analysis.
 
 ## Initial EDA
 
+### Data overview
+
 ```{r}
 #| label: load-data
+#| eval: false
 library(tidyverse)
+library(visdat)
+library(skimr)
 library(here)
 
-# data <- read_csv(here("data", "raw", "data.csv"))
+flights <- read_csv(here("data", "raw", "Airline_Delay_Cause.csv"))
+
+glimpse(flights)
+
+vis_dat(head(flights, 500))
+
+skim(select(flights,
+            arr_flights,
+            arr_del15,
+            arr_delay))
 ```
+
+
+### Data quality checks
+
+- Variables are correctly typed overall, with month potentially better treated as a categorical variable.
+- One negative value (-0.01) was found in `nas_ct` and will be treated as 0.
+- Two negative values (-1 and -19) were found in `nas_delay` and will be treated as missing values.
+- Delay-cause variables such as `carrier_ct` contain decimal values because they represent allocated delay causes rather than strict counts.
+- Several delay-related variables contain missing values (664–964 observations), which appear to be structurally driven.
+- No obvious inconsistencies were found in categorical variables.
+
+
+### Visual Exploration
+```{r}
+library(ggplot2)
+
+# Plot Distribution of arrival delays
+ggplot(flights, aes(x = arr_delay)) +
+  geom_histogram(bins = 50) +
+  labs(title = "Distribution of arrival delays",
+       x = "Arrival delay (minutes)", y = "Count")
+
+```
+
+The distribution of arrival delays is strongly right-skewed. Most flights experience small delays, while a small number of extreme delays create a long right tail.
+
+
+```{r}
+# Plot relationship between flight volume and delays
+ggplot(flights, aes(x = arr_flights, y = arr_del15)) +
+  geom_point(alpha = 0.6) +
+  labs(title = "Relationship between number of flights and delayed flights",
+       x = "Number of flights",
+       y = "Number of delayed flights")
+```
+
+
+The scatterplot suggests a positive relationship between flight volume and delayed flights, indicating that higher traffic is associated with more delays.
 
 <!-- Add 2–3 exploratory plots and a brief commentary on what you observe. -->
 
