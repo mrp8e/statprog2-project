@@ -1,10 +1,10 @@
 ---
 title: "Project Proposal"
 author:
-  - "Group Member 1"
-  - "Group Member 2"
-  - "Group Member 3"
-  - "Group Member 4"
+  - "Emil Sitka"
+  - "Luise Killich"
+  - "Ziqi Ang"
+  - "Franka Konold"
 date: today
 ---
 
@@ -35,18 +35,18 @@ Each row represents aggregated flight delay statistics for a specific airline, a
 - arr_flights
 - arr_del15
 - arr_delay
-- carrier_delay, weather_delay, nas_delay, security_delay, late_aircraft_delay
+- carrier_delay, weather_delay, nas_delay, security_delay, late_aircraft_delay #delay cause are all labeled
 
 
 ## Research Questions
  
+1. How do flight delays vary across airlines, airports and over time? What temporal and seasonal patterns can be observed? And find hidden patterns and correlations about variables visualized with Heatmaps (Descriptive)
 
-1. How do flight delays vary across airlines, airports and over time? (Descriptive)
+2. Is there a relationship between the number of flights (arr_flights) and the number of delayed flights (arr_del15)? What is the distribution of different delay causes across flights, airlines, and airports? (Exploratory)
 
-2. Is there a relationship between the number of flights (arr_flights) and the number of delayed flights (arr_del15)? (Exploratory)
+3. Can we predict total arrival delays based on flight volume and delay causes? e.g. Regression analyse of the weather conditions impact on delay (Predictive) 
 
-3. Can we predict total arrival delays based on flight volume and delay causes? (Predictive)
-
+4.Causal analyse vs. correlation Heatmap Time-series analysis with ARIMA Model (Optional)
 
 ## Context and Audience
 
@@ -115,8 +115,47 @@ ggplot(flights, aes(x = arr_flights, y = arr_del15)) +
        y = "Number of delayed flights")
 ```
 
-
 The scatterplot suggests a positive relationship between flight volume and delayed flights, indicating that higher traffic is associated with more delays.
+
+
+```{r}
+library(dplyr)
+library(tidyverse)
+delay <- delay %>%
+  mutate(
+    ontime_flights = arr_flights - arr_del15,
+    delay_rate = arr_del15 / arr_flights,
+    ontime_rate = ontime_flights / arr_flights,
+    avg_delay_per_delayed_flight = ifelse(
+      arr_del15 > 0,
+      arr_delay / arr_del15,
+      NA
+    )
+  )
+summary(delay$delay_rate)
+mean(delay$delay_rate, na.rm = TRUE)
+
+# compute year delay rate over years
+yearly <- delay %>%
+  group_by(year) %>%
+  summarise(
+    total_flights = sum(arr_flights, na.rm = TRUE),
+    total_delayed = sum(arr_del15, na.rm = TRUE),
+    delay_rate = total_delayed / total_flights
+  )
+
+# plot the trend
+ggplot(yearly, aes(x = year, y = delay_rate)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2) +
+  scale_x_continuous(breaks = yearly$year[seq(1, length(yearly$year), by = 2)]) +
+  labs(
+    title = "Flight Delay Rate Over Time",
+    x = "Year",
+    y = "Delay Rate"
+  )
+```
+Trend analysis, delay rate over year, (dataset is not unified with other members, because the dataset needs to be discussed with other members about how to split under 10mb)
 
 <!-- Add 2–3 exploratory plots and a brief commentary on what you observe. -->
 
