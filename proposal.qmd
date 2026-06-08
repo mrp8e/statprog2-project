@@ -48,6 +48,7 @@ Each row represents aggregated flight delay statistics for a specific airline, a
 
 4.Causal analyse vs. correlation Heatmap Time-series analysis with ARIMA Model (Optional)
 
+
 ## Context and Audience
 
 This analysis is conducted in an academic setting as part of the Advanced Statistical Programming course. 
@@ -68,13 +69,13 @@ library(visdat)
 library(skimr)
 library(here)
 
-flights <- read_csv(here("data", "raw", "Airline_Delay_Cause.csv"))
+delay <- read_csv(here("data", "raw", "Airline_Delay_Cause.csv"))
 
-glimpse(flights)
+glimpse(delay)
 
-vis_dat(head(flights, 500))
+vis_dat(head(delay, 500))
 
-skim(select(flights,
+skim(select(delay,
             arr_flights,
             arr_del15,
             arr_delay))
@@ -96,7 +97,7 @@ skim(select(flights,
 library(ggplot2)
 
 # Plot Distribution of arrival delays
-ggplot(flights, aes(x = arr_delay)) +
+ggplot(delay, aes(x = arr_delay)) +
   geom_histogram(bins = 50) +
   labs(title = "Distribution of arrival delays",
        x = "Arrival delay (minutes)", y = "Count")
@@ -108,7 +109,7 @@ The distribution of arrival delays is strongly right-skewed. Most flights experi
 
 ```{r}
 # Plot relationship between flight volume and delays
-ggplot(flights, aes(x = arr_flights, y = arr_del15)) +
+ggplot(delay, aes(x = arr_flights, y = arr_del15)) +
   geom_point(alpha = 0.6) +
   labs(title = "Relationship between number of flights and delayed flights",
        x = "Number of flights",
@@ -160,5 +161,21 @@ Trend analysis, delay rate over year, (dataset is not unified with other members
 <!-- Add 2–3 exploratory plots and a brief commentary on what you observe. -->
 
 ## Analysis Plan
+
+RQ1
+- descriptive statistics and group comparison (Boxplots, means)
+- plots over airlines/airports/time
+- heatmaps
+- trend analysis over year
+
+RQ2
+- scatterplots
+- correlation analysis
+- regression
+
+RQ3
+- Regression
+- predictors: flights + delay causes
+
 
 <!-- Outline the methods you plan to use to answer your research questions. -->
