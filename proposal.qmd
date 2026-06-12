@@ -69,9 +69,7 @@ library(visdat)
 library(skimr)
 library(here)
 
-delay <- read_csv(here("data", "raw", "Airline_Delay_Cause.csv"))
-
-delay_short <- delay[sample(nrow(delay), 55000), ]
+delay <- read_csv(here("data", "raw", "delay_short"))
 
 glimpse(delay)
 
