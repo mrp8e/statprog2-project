@@ -39,14 +39,12 @@ Each row represents aggregated flight delay statistics for a specific airline, a
 
 
 ## Research Questions
- 
-1. How do flight delays vary across airlines, airports and over time? What temporal and seasonal patterns can be observed? And find hidden patterns and correlations about variables visualized with Heatmaps (Descriptive)
 
-2. Is there a relationship between the number of flights (arr_flights) and the number of delayed flights (arr_del15)? What is the distribution of different delay causes across flights, airlines, and airports? (Exploratory)
+1. How do flight delays vary across airlines, airports and over time? What is the distribution of different delay causes across flights, airlines and airports? What temporal and seasonal patterns can be observed?
 
-3. Can we predict total arrival delays based on flight volume and delay causes? e.g. Regression analyse of the weather conditions impact on delay (Predictive) 
 
-4.Causal analyse vs. correlation Heatmap Time-series analysis with ARIMA Model (Optional)
+2. Is there a relationship between the number of flights (arr_flights) and the number of delayed flights (arr_del15)? Can we predict total arrival delays based on flight volume and delay causes? 
+
 
 
 ## Context and Audience
