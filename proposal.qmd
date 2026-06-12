@@ -71,6 +71,8 @@ library(here)
 
 delay <- read_csv(here("data", "raw", "Airline_Delay_Cause.csv"))
 
+delay_short <- delay[sample(nrow(delay), 55000), ]
+
 glimpse(delay)
 
 vis_dat(head(delay, 500))
@@ -83,6 +85,7 @@ skim(select(delay,
 
 
 ### Data quality checks
+Due to the large size of the dataset, a random sample of 55,000 observations was taken.
 
 - Variables are correctly typed overall, with month potentially better treated as a categorical variable.
 - One negative value (-0.01) was found in `nas_ct` and will be treated as 0.
