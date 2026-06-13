@@ -91,6 +91,15 @@ Due to the large size of the dataset, a random sample of 55,000 observations was
 - No obvious inconsistencies were found in categorical variables.
 
 
+### Data type 
+This dataset contains:
+- integer variables: `year`, `month`, `arr_flights`, `arr_del15`, `arr_cancelled`, `arr_diverted`, `arr_delay`, `carrier_delay`, `weather_delay`, `nas_delay`, `security_delay`, `late_aircraft_delay`
+- numeric variables: `carrier_ct`, `weather_ct`, `nas_ct`, `security_ct`, `late_aircraft_ct` (do we need to change them to double?)
+- character variables: `carrier`, `carrier_name`, `airport`, `airport_name`
+
+### Count NA entries, diagnose missingness mechanism MAR, MCAR, MNAR, decide solution
+
+
 ### Visual Exploration
 ```{r}
 library(ggplot2)
@@ -161,20 +170,24 @@ Trend analysis, delay rate over year, (dataset is not unified with other members
 
 ## Analysis Plan
 
-RQ1
-- descriptive statistics and group comparison (Boxplots, means)
+RQ1 
+- descriptive statistics and group comparison (Boxplots, means)- detect outliers
+- test data normality with QQ plot
+- summarize data distribution with Histogram
+- carrier comparision
 - plots over airlines/airports/time
-- heatmaps
-- trend analysis over year
+- trend analysis over year, detect anomalies (e.g.sudden drop in 2020 & Covid Pandemie)
+- cluster delay type, plots line charts 
 
-RQ2
-- scatterplots
+RQ2 
+- scatterplots - visualize relationship between two variable to identify correlation
+- Heatmaps - correlation among multiple variables
 - correlation analysis
-- regression
 
 RQ3
 - Regression
 - predictors: flights + delay causes
+- Residual plot
 
 
 <!-- Outline the methods you plan to use to answer your research questions. -->
