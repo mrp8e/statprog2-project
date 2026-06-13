@@ -90,7 +90,6 @@ Due to the large size of the dataset, a random sample of 55,000 observations was
 - Several delay-related variables contain missing values (664–964 observations), which appear to be structurally driven.
 - No obvious inconsistencies were found in categorical variables.
 
-
 ### Data type 
 This dataset contains:
 - integer variables: `year`, `month`, `arr_flights`, `arr_del15`, `arr_cancelled`, `arr_diverted`, `arr_delay`, `carrier_delay`, `weather_delay`, `nas_delay`, `security_delay`, `late_aircraft_delay`
@@ -168,13 +167,17 @@ Trend analysis, delay rate over year, (dataset is not unified with other members
 
 <!-- Add 2–3 exploratory plots and a brief commentary on what you observe. -->
 
+## Summary Statistics
+- Central Tendency: calculate the mean, median, and mode 
+- Spread and Variability: standard deviation, variance, and range
+- test data normality with QQ plot
+- data distribution with Histogram
+
 ## Analysis Plan
 
 RQ1 
-- descriptive statistics and group comparison (Boxplots, means)- detect outliers
-- test data normality with QQ plot
-- summarize data distribution with Histogram
-- carrier comparision
+- descriptive statistics and group comparison (Boxplots, means)
+- compare `arr_delay` across `carrier` 
 - plots over airlines/airports/time
 - trend analysis over year, detect anomalies (e.g.sudden drop in 2020 & Covid Pandemie)
 - cluster delay type, plots line charts 
@@ -185,9 +188,8 @@ RQ2
 - correlation analysis
 
 RQ3
-- Regression
+- Regression, e.g. multiple linear regression?
 - predictors: flights + delay causes
-- Residual plot
 
 
 <!-- Outline the methods you plan to use to answer your research questions. -->
