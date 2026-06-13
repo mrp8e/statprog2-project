@@ -188,8 +188,10 @@ RQ2
 - correlation analysis
 
 RQ3
-- Regression, e.g. multiple linear regression?
+- Regression
 - predictors: flights + delay causes
+- dataset observation: `arr_delay`= `carrier_delay`+ `weather_delay`+ `nas_delay`+`security_delay`+`late_aircra`; `arr_del15` as Zähldaten
+(can we do linear regression or possion regression?)
 
 
 <!-- Outline the methods you plan to use to answer your research questions. -->
