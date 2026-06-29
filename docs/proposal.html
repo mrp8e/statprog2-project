@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Emil Sitka">
+<meta name="author" content="Luise Killich">
+<meta name="author" content="Ziqi Ang">
+<meta name="author" content="Franka Konold">
+<meta name="dcterms.date" content="2026-06-30">
+
+<title>Project Proposal – StatProg2 Group Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">StatProg2 Group Project</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./proposal.html" aria-current="page"> 
+<span class="menu-text">Proposal</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./report.qmd"> 
+<span class="menu-text">Report</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#dataset" id="toc-dataset" class="nav-link active" data-scroll-target="#dataset">Dataset</a>
+  <ul class="collapse">
+  <li><a href="#source" id="toc-source" class="nav-link" data-scroll-target="#source">Source</a></li>
+  <li><a href="#licence" id="toc-licence" class="nav-link" data-scroll-target="#licence">Licence</a></li>
+  <li><a href="#structure-of-the-dataset" id="toc-structure-of-the-dataset" class="nav-link" data-scroll-target="#structure-of-the-dataset">Structure of the dataset</a></li>
+  <li><a href="#data-dictionary" id="toc-data-dictionary" class="nav-link" data-scroll-target="#data-dictionary">Data Dictionary</a></li>
+  </ul></li>
+  <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions">Research Questions</a></li>
+  <li><a href="#context-and-audience" id="toc-context-and-audience" class="nav-link" data-scroll-target="#context-and-audience">Context and Audience</a></li>
+  <li><a href="#initial-eda" id="toc-initial-eda" class="nav-link" data-scroll-target="#initial-eda">Initial EDA</a>
+  <ul class="collapse">
+  <li><a href="#data-overview" id="toc-data-overview" class="nav-link" data-scroll-target="#data-overview">Data overview</a></li>
+  <li><a href="#data-quality-checks" id="toc-data-quality-checks" class="nav-link" data-scroll-target="#data-quality-checks">Data quality checks</a></li>
+  <li><a href="#data-type" id="toc-data-type" class="nav-link" data-scroll-target="#data-type">Data type</a></li>
+  <li><a href="#count-na-entries-diagnose-missingness-mechanism-mar-mcar-mnar-decide-solution" id="toc-count-na-entries-diagnose-missingness-mechanism-mar-mcar-mnar-decide-solution" class="nav-link" data-scroll-target="#count-na-entries-diagnose-missingness-mechanism-mar-mcar-mnar-decide-solution">Count NA entries, diagnose missingness mechanism MAR, MCAR, MNAR, decide solution</a></li>
+  <li><a href="#visual-exploration" id="toc-visual-exploration" class="nav-link" data-scroll-target="#visual-exploration">Visual Exploration</a></li>
+  </ul></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary Statistics</a></li>
+  <li><a href="#analysis-plan" id="toc-analysis-plan" class="nav-link" data-scroll-target="#analysis-plan">Analysis Plan</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Project Proposal</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Emil Sitka </p>
+             <p>Luise Killich </p>
+             <p>Ziqi Ang </p>
+             <p>Franka Konold </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 30, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
+<!-- Describe the dataset: source, licence, dimensions, key variables. -->
+<section id="source" class="level3">
+<h3 class="anchored" data-anchor-id="source">Source</h3>
+<p>The dataset used in this project is provided by the Bureau of Transportation Statistics (BTS), part of the U.S. Department of Transportation (USDOT). Specifically, it originates from the Airline Service Quality Performance (ASQP) database. Under federal regulations air carriers with at least 1% of domestic scheduled-passenger revenues are legally required to report monthly on-time performance and detailed flight delay causes to the BTS.</p>
+</section>
+<section id="licence" class="level3">
+<h3 class="anchored" data-anchor-id="licence">Licence</h3>
+<p>As a U.S. federal government dataset, it is released into the public domain (U.S government Data). This framework allows us to download, analyse, modify, and publish results based on the dataset without requiring a license or proprietary permissions.</p>
+</section>
+<section id="structure-of-the-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="structure-of-the-dataset">Structure of the dataset</h3>
+<p>The dataset is structured as a monthly summary grouped by airline and airport. Each row in the dataset gives information about how a specific carrier performed at a specific airport during a specific month and year.</p>
+<p>The 25 variables can be grouped into four categories:</p>
+<ul>
+<li><p>Identifiers: Who, where and when (<code>year</code>, <code>month</code>, <code>carrier</code>, <code>carrier_name</code>, <code>airport</code>, <code>airport_name</code>)</p></li>
+<li><p>Headcounts: the raw number of flights that scheduled to land, how many were on time and how many ended up cancelled or diverted (<code>arr_flights</code>, <code>arr_del15</code>, <code>arr_cancelled</code>, <code>arr_diverted</code>, <code>ontime_flights</code>)</p></li>
+<li><p>Responsibility: The number of flights assigned to a specific delay category (<code>carrier_ct</code>, <code>weather_ct</code>, <code>nas_ct</code>, <code>security_ct</code>, <code>late_aircraft_ct</code>)</p></li>
+<li><p>Rates: The actual duration of the delays in minutes and the calculated rates to show the percentage of flights on time vs late (<code>delay_rate</code>, <code>onetime_rate</code> and <code>avg_delay_per_delayed_flight</code>)</p></li>
+</ul>
+<p>Additionally, when a single flight experiences multiple sources of delay, the dataset allocates both the minutes and flight counts proportionally. This ensures that the sum of all fractional count variables within any given row equals the total integer count of delayed flights.</p>
+<p>For example, if a flight is delayed 60 minutes, with 30 minutes due to carrier issues and 30 minutes due to weather, both <code>carrier_delay</code> and <code>weather_delay</code> receive 30 minutes, while <code>carrier_ct</code> and <code>weather_ct</code> each receive a fractional count of 0.5.</p>
+</section>
+<section id="data-dictionary" class="level3">
+<h3 class="anchored" data-anchor-id="data-dictionary">Data Dictionary</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable Name</th>
+<th style="text-align: left;">Data Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>year</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">Year of the flight.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>month</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">Month of the flight.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>carrier</strong></td>
+<td style="text-align: left;">char</td>
+<td style="text-align: left;">Unique two-letter airline carrier code</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>carrier_name</strong></td>
+<td style="text-align: left;">char</td>
+<td style="text-align: left;">The full commercial name of the airline carrier.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>airport</strong></td>
+<td style="text-align: left;">char</td>
+<td style="text-align: left;">The 3-letter IATA airport code (e.g.&nbsp;JFK, LAX).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>airport_name</strong></td>
+<td style="text-align: left;">char</td>
+<td style="text-align: left;">The full name of the airport along with its city and state location.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>arr_flights</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">Total number of arriving flights for that carrier/airport/month combination.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>arr_del15</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">Total number of arriving flights delayed by 15 minutes or more.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>carrier_ct</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">The fractional count of flights delayed due to airline-controlled factors.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>weather_ct</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">The fractional count of flights delayed due to significant or extreme weather conditions.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>nas_ct</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">The fractional count of flights delayed due to the National Airspace System.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>security_ct</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">The fractional count of flights delayed due to airport security breaches or issues.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>late_aircraft_ct</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">The fractional count of flights delayed because the incoming aircraft arrived late.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>arr_cancelled</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">Total number of arriving flights that were cancelled.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>arr_diverted</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">Total number of arriving flights that were diverted to an alternate airport.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>arr_delay</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">Total arrival delay minutes accumulated by all flights.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>carrier_delay</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">The cause of delay was within airline´s control (e.g.&nbsp;maintenance, fueling, etc.)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>weather_delay</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">Meteorological conditions (actual or forecasted) that prevents operation of a flight.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>nas_delay</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">Delays attributable to the national aviation system that refer to conditions as non-extreme weather conditions, airport operations, heavy traffic volume and air traffic control.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>security_delay</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">Delays caused by evacuation of a terminal or concourse, reboarding of aircraft because of security breach, inoperative screening equipment and/or long lines in excess of 29 minutes at screeing areas.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>late_aircraft_delay</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">A previous flight with same aircraft arrived late, causing the present flight to depart late.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ontime_flights</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">Flights are considered ontime if it operates less than 15 minutes later than the scheduled time.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>delay_rate</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">The proportion of delayed flights relative to total arriving flights (<code>arr_del15</code> / <code>arr_flights</code>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ontime_rate</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">The proportion of on-time flights relative to total arriving flights (<code>ontime_flights</code> / <code>arr_flights</code>).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>avg_delay_per_delayed_flight</strong></td>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;">The average duration of delays in minutes, calculated only for flights that were actually delayed (<code>arr_delay</code>/ <code>arr_del15</code>).</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="research-questions" class="level2">
+<h2 class="anchored" data-anchor-id="research-questions">Research Questions</h2>
+<ol type="1">
+<li><p>How do flight delays vary across airlines, airports and over time? What is the distribution of different delay causes across flights, airlines and airports? What temporal and seasonal patterns can be observed?</p></li>
+<li><p>Is there a relationship between the number of flights (arr_flights) and the number of delayed flights (arr_del15)? Can we predict total arrival delays based on flight volume and delay causes?</p></li>
+</ol>
+</section>
+<section id="context-and-audience" class="level2">
+<h2 class="anchored" data-anchor-id="context-and-audience">Context and Audience</h2>
+<p>This analysis is conducted in an academic setting as part of the Advanced Statistical Programming course.</p>
+<p>The primary target audience is lecturers.</p>
+<p>The results are presented as an interactive quarto report that combines code, visualisations and text for data storytelling and reproducible analysis.</p>
+</section>
+<section id="initial-eda" class="level2">
+<h2 class="anchored" data-anchor-id="initial-eda">Initial EDA</h2>
+<section id="data-overview" class="level3">
+<h3 class="anchored" data-anchor-id="data-overview">Data overview</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Paket 'tidyverse' wurde unter R Version 4.5.2 erstellt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Paket 'ggplot2' wurde unter R Version 4.5.3 erstellt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Paket 'tidyr' wurde unter R Version 4.5.2 erstellt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Paket 'readr' wurde unter R Version 4.5.3 erstellt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Paket 'purrr' wurde unter R Version 4.5.2 erstellt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Paket 'dplyr' wurde unter R Version 4.5.2 erstellt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Paket 'stringr' wurde unter R Version 4.5.2 erstellt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Paket 'lubridate' wurde unter R Version 4.5.2 erstellt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.2
+✔ purrr     1.2.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(visdat)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Paket 'here' wurde unter R Version 4.5.2 erstellt</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at C:/Users/lkill/OneDrive/Dokumente/Uni/GitHub/statprog2-project</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>delay <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"raw"</span>, <span class="st">"delay_short.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 55000 Columns: 21
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (4): carrier, carrier_name, airport, airport_name
+dbl (17): year, month, arr_flights, arr_del15, carrier_ct, weather_ct, nas_c...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(delay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 55,000
+Columns: 21
+$ year                &lt;dbl&gt; 2009, 2004, 2019, 2019, 2025, 2022, 2009, 2006, 20…
+$ month               &lt;dbl&gt; 5, 12, 12, 6, 9, 9, 3, 12, 12, 2, 7, 9, 4, 6, 7, 6…
+$ carrier             &lt;chr&gt; "AS", "AA", "C5", "OH", "C5", "YV", "OO", "DL", "E…
+$ carrier_name        &lt;chr&gt; "Alaska Airlines Inc.", "American Airlines Inc.", …
+$ airport             &lt;chr&gt; "DCA", "OAK", "BTV", "SRQ", "ECP", "VPS", "CDC", "…
+$ airport_name        &lt;chr&gt; "Washington, DC: Ronald Reagan Washington National…
+$ arr_flights         &lt;dbl&gt; 93, 153, 60, 90, 46, 8, 58, 9, 26, 108, 55, 60, 26…
+$ arr_del15           &lt;dbl&gt; 12, 52, 17, 16, 4, 1, 8, 1, 5, 20, 8, 19, 23, 16, …
+$ carrier_ct          &lt;dbl&gt; 4.63, 18.16, 7.83, 3.43, 1.24, 0.00, 1.67, 1.00, 1…
+$ weather_ct          &lt;dbl&gt; 0.00, 3.84, 0.27, 2.84, 0.00, 0.00, 0.00, 0.00, 0.…
+$ nas_ct              &lt;dbl&gt; 7.37, 14.53, 3.92, 3.91, 1.19, 1.00, 2.47, 0.00, 0…
+$ security_ct         &lt;dbl&gt; 0.00, 1.85, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.…
+$ late_aircraft_ct    &lt;dbl&gt; 0.00, 13.61, 4.98, 5.83, 1.57, 0.00, 3.87, 0.00, 2…
+$ arr_cancelled       &lt;dbl&gt; 0, 2, 2, 1, 0, 1, 1, 0, 0, 3, 1, 1, 0, 0, 0, 0, 1,…
+$ arr_diverted        &lt;dbl&gt; 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,…
+$ arr_delay           &lt;dbl&gt; 578, 2860, 1654, 1604, 154, 22, 353, 20, 621, 859,…
+$ carrier_delay       &lt;dbl&gt; 306, 935, 955, 696, 37, 0, 57, 20, 111, 521, 84, 4…
+$ weather_delay       &lt;dbl&gt; 0, 314, 18, 234, 0, 0, 0, 0, 0, 15, 28, 311, 16, 0…
+$ nas_delay           &lt;dbl&gt; 272, 466, 157, 142, 29, 22, 96, 0, 120, 28, 69, 71…
+$ security_delay      &lt;dbl&gt; 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100, 0, 0,…
+$ late_aircraft_delay &lt;dbl&gt; 0, 1081, 524, 532, 88, 0, 200, 0, 390, 295, 372, 1…</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_dat</span>(<span class="fu">head</span>(delay, <span class="dv">500</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="proposal_files/figure-html/load-data-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(<span class="fu">select</span>(delay,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>            arr_flights,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>            arr_del15,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>            arr_delay))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">select(delay, arr_flights…</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">55000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 16%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">arr_flights</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">352.28</td>
+<td style="text-align: right;">974.34</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">247</td>
+<td style="text-align: right;">21688</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">arr_del15</td>
+<td style="text-align: right;">122</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">68.20</td>
+<td style="text-align: right;">190.39</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">5778</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">arr_delay</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4134.90</td>
+<td style="text-align: right;">12568.32</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">399</td>
+<td style="text-align: right;">1144</td>
+<td style="text-align: right;">2982</td>
+<td style="text-align: right;">409579</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="data-quality-checks" class="level3">
+<h3 class="anchored" data-anchor-id="data-quality-checks">Data quality checks</h3>
+<p>Due to the large size of the dataset, a random sample of 55,000 observations was taken.</p>
+<ul>
+<li><p>Variables are correctly typed overall, with month potentially better treated as a categorical variable.</p></li>
+<li><p>In one row (40418), negative values were identified in <code>nas_ct</code>(-0.01) and <code>nas_delay</code>(-1). Both values were treated as missing values (NA).</p></li>
+<li><p>Delay-cause variables such as <code>carrier_ct</code> contain decimal values because they represent allocated delay causes rather than strict counts.</p></li>
+<li><p>Several delay-related variables contain missing values (664–964 observations), which appear to be structurally driven.</p></li>
+<li><p>No obvious inconsistencies were found in categorical variables.</p></li>
+</ul>
+</section>
+<section id="data-type" class="level3">
+<h3 class="anchored" data-anchor-id="data-type">Data type</h3>
+<p>This dataset contains:</p>
+<ul>
+<li><p>integer variables: <code>year</code>, <code>month</code>, <code>arr_flights</code>, <code>arr_del15</code>, <code>arr_cancelled</code>, <code>arr_diverted</code>, <code>arr_delay</code>, <code>carrier_delay</code>, <code>weather_delay</code>, <code>nas_delay</code>, <code>security_delay</code>, <code>late_aircraft_delay</code></p></li>
+<li><p>numeric variables: <code>carrier_ct</code>, <code>weather_ct</code>, <code>nas_ct</code>, <code>security_ct</code>, <code>late_aircraft_ct</code> (do we need to change them to double?)</p></li>
+<li><p>character variables: <code>carrier</code>, <code>carrier_name</code>, <code>airport</code>, <code>airport_name</code></p></li>
+</ul>
+</section>
+<section id="count-na-entries-diagnose-missingness-mechanism-mar-mcar-mnar-decide-solution" class="level3">
+<h3 class="anchored" data-anchor-id="count-na-entries-diagnose-missingness-mechanism-mar-mcar-mnar-decide-solution">Count NA entries, diagnose missingness mechanism MAR, MCAR, MNAR, decide solution</h3>
+</section>
+<section id="visual-exploration" class="level3">
+<h3 class="anchored" data-anchor-id="visual-exploration">Visual Exploration</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot Distribution of arrival delays</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(delay, <span class="fu">aes</span>(<span class="at">x =</span> arr_delay)) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>) <span class="sc">+</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution of arrival delays"</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Arrival delay (minutes)"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 81 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="proposal_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The distribution of arrival delays is strongly right-skewed. Most flights experience small delays, while a small number of extreme delays create a long right tail.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot relationship between flight volume and delays</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(delay, <span class="fu">aes</span>(<span class="at">x =</span> arr_flights, <span class="at">y =</span> arr_del15)) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Relationship between number of flights and delayed flights"</span>,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Number of flights"</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of delayed flights"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 122 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="proposal_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The scatterplot suggests a positive relationship between flight volume and delayed flights, indicating that higher traffic is associated with more delays.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>delay <span class="ot">&lt;-</span> delay <span class="sc">%&gt;%</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">ontime_flights =</span> arr_flights <span class="sc">-</span> arr_del15,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">delay_rate =</span> arr_del15 <span class="sc">/</span> arr_flights,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ontime_rate =</span> ontime_flights <span class="sc">/</span> arr_flights,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_delay_per_delayed_flight =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>      arr_del15 <span class="sc">&gt;</span> <span class="dv">0</span>,</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>      arr_delay <span class="sc">/</span> arr_del15,</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>      <span class="cn">NA</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(delay<span class="sc">$</span>delay_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+ 0.0000  0.1236  0.1869  0.1996  0.2586  1.0000     122 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(delay<span class="sc">$</span>delay_rate, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.199595</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute year delay rate over years</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>yearly <span class="ot">&lt;-</span> delay <span class="sc">%&gt;%</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_flights =</span> <span class="fu">sum</span>(arr_flights, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_delayed =</span> <span class="fu">sum</span>(arr_del15, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">delay_rate =</span> total_delayed <span class="sc">/</span> total_flights</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the trend</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(yearly, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> delay_rate)) <span class="sc">+</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> yearly<span class="sc">$</span>year[<span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">length</span>(yearly<span class="sc">$</span>year), <span class="at">by =</span> <span class="dv">2</span>)]) <span class="sc">+</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Flight Delay Rate Over Time"</span>,</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Delay Rate"</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="proposal_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Trend analysis, delay rate over year, (dataset is not unified with other members, because the dataset needs to be discussed with other members about how to split under 10mb)</p>
+<!-- Add 2–3 exploratory plots and a brief commentary on what you observe. -->
+</section>
+</section>
+<section id="summary-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="summary-statistics">Summary Statistics</h2>
+<ul>
+<li>Central Tendency: calculate the mean, median, and mode</li>
+<li>Spread and Variability: standard deviation, variance, and range</li>
+<li>test data normality with QQ plot</li>
+<li>data distribution with Histogram</li>
+</ul>
+</section>
+<section id="analysis-plan" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-plan">Analysis Plan</h2>
+<p>RQ1 - descriptive statistics and group comparison (Boxplots, means) - compare <code>arr_delay</code> across <code>carrier</code> - plots over airlines/airports/time - trend analysis over year, detect anomalies (e.g.sudden drop in 2020 &amp; Covid Pandemie) - cluster delay type, plots line charts</p>
+<p>RQ2 - scatterplots - visualize relationship between two variable to identify correlation - Heatmaps - correlation among multiple variables - correlation analysis</p>
+<p>RQ3 - Regression - predictors: flights + delay causes - dataset observation: <code>arr_delay</code>= <code>carrier_delay</code>+ <code>weather_delay</code>+ <code>nas_delay</code>+<code>security_delay</code>+<code>late_aircra</code>; <code>arr_del15</code> as Zähldaten (can we do linear regression or possion regression?)</p>
+<!-- Outline the methods you plan to use to answer your research questions. -->
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
