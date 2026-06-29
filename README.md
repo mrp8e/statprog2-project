@@ -39,7 +39,7 @@ and to explore potential factors associated with delayed flights.
 |-----------------|-----------------|
 | Emil Sitka      | mrp8e           |
 | Luise Killich   | lkillich09      |
-| Ziqi Ang        | AngZiqi         |
+| Ziqi Ang        | z7oon           |
 | Franka Konold   | franka570       |
 
 
