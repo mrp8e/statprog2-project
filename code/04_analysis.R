@@ -68,7 +68,19 @@ delay %>%
   ) %>%
   arrange(desc(mean_delay))
 
-boxplot(arr_delay ~ carrier, data = delay)
+# The boxplot shows the distribution of arrival delays across different carriers
+delay %>%
+  ggplot(aes(
+    x = carrier,
+    y = arr_delay
+    )) +
+  geom_boxplot() +
+  theme_minimal() +
+  labs(
+    title = "Arrival Delays by Carrier",
+    x = "Carrier",
+    y = "Arrival Delay (minutes)"
+  )
 
 
 # TODO: Add group comparisons (e.g., boxplots across carriers/airports) and 
