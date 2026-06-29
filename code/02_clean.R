@@ -4,7 +4,7 @@
 library(tidyverse)
 library(here)
 
-raw <- read_csv(here("data", "raw", "Airline_Delay_Cause.csv"))
+raw <- read_csv(here("data", "raw", "delay_short.csv"))
 
 cleaned <- raw |>
   # TODO: add cleaning steps

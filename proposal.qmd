@@ -151,10 +151,9 @@ observations was taken.
 
 - Variables are correctly typed overall, with month potentially better
   treated as a categorical variable.
-- One negative value (-0.01) was found in `nas_ct` and will be treated
-  as 0.
-- Two negative values (-1 and -19) were found in `nas_delay` and will be
-  treated as missing values.
+
+- In one row (40418), negative values were identified in `nas_ct`(-0.01) and `nas_delay`(-1). 
+  Both values were treated as missing values (NA).
 - Delay-cause variables such as `carrier_ct` contain decimal values
   because they represent allocated delay causes rather than strict
   counts.
