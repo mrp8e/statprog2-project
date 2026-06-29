@@ -55,6 +55,21 @@ ggplot(data, aes(sample = arr_delay)) +
 
 # 5. RQ1: DESCRIPTIVE STATISTICS & GROUP COMPARISONS
 
+summary(delay$arr_delay)
+mean(delay$arr_delay, na.rm = TRUE)
+
+# Group data by carrier and compute mean, median delay and number of flights
+delay %>%
+  group_by(carrier_name) %>%
+  summarise(
+    mean_delay = mean(arr_delay, na.rm = TRUE),
+    median_delay = median(arr_delay, na.rm = TRUE),
+    n = n()
+  ) %>%
+  arrange(desc(mean_delay))
+
+boxplot(arr_delay ~ carrier, data = delay)
+
 
 # TODO: Add group comparisons (e.g., boxplots across carriers/airports) and 
 # temporal/seasonal trend analysis (including Covid-19 anomaly checks).
