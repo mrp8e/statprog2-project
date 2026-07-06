@@ -10,3 +10,4 @@ _site/
 # OS
 .DS_Store
 Thumbs.db
+renv/
