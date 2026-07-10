@@ -108,6 +108,9 @@ each receive a fractional count of 0.5.
 2.  Is there a relationship between the number of flights (arr_flights)
     and the number of delayed flights (arr_del15)? Can we predict total
     arrival delays based on flight volume and delay causes?
+    
+3.  Can arrival delays (arr_del15) be predicted based on flight characteristics and different delay causes such as carrier, weather, NAS, security, and late aircraft delays? What factors are significant predictors of flight delays?
+
 
 ## Context and Audience
 
@@ -126,7 +129,6 @@ analysis.
 
 ```{r}
 #| label: load-data
-#| eval: false
 library(tidyverse)
 library(visdat)
 library(skimr)
@@ -271,9 +273,10 @@ RQ2 - scatterplots - visualize relationship between two variable to
 identify correlation - Heatmaps - correlation among multiple variables -
 correlation analysis
 
+
 RQ3 - Regression - predictors: flights + delay causes - dataset
 observation: `arr_delay`= `carrier_delay`+ `weather_delay`+
-`nas_delay`+`security_delay`+`late_aircra`; `arr_del15` as Zähldaten
+`nas_delay`+`security_delay`+`late_aircra`; `arr_del15` als Zähldaten
 (can we do linear regression or possion regression?)
 
 <!-- Outline the methods you plan to use to answer your research questions. -->
