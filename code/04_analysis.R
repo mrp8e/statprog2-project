@@ -84,8 +84,8 @@ delay %>%
 
 
 # TODO: Add group comparisons (e.g., boxplots across carriers/airports) and 
-# temporal/seasonal trend analysis (including Covid-19 anomaly checks).
-
+# maybe add top 10 most delayed airpoints plots
+# Temporal/seasonal trend analysis (including Covid-19 anomaly checks) -> Ziqi put this part into 03_eda 
 
 # 6. RQ2: CORRELATION & RELATIONSHIP ANALYSIS
 
