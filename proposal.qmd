@@ -234,7 +234,7 @@ yearly <- delay %>%
     delay_rate = total_delayed / total_flights
   )
 
-# plot the trend
+# plot the overall trend
 ggplot(yearly, aes(x = year, y = delay_rate)) +
   geom_line(linewidth = 1) +
   geom_point(size = 2) +
