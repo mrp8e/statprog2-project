@@ -20,5 +20,6 @@ library(reticulate)
 # 2. STL decomposition for seasonality, cynical patterns
 # 3. validate initial assumptions
 # !make plots interactive, ggplotly or gganimate
+# or ipywidgets or DrawData https://github.com/koaning/drawdata
 
 
