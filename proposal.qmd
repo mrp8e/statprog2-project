@@ -134,8 +134,6 @@ library(visdat)
 library(skimr)
 library(here)
 
-delay <- read_csv(here("data", "raw", "delay_short.csv"))
-
 glimpse(delay)
 
 vis_dat(head(delay, 500))
