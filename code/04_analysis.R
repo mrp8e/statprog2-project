@@ -83,6 +83,104 @@ delay %>%
   )
 
 
+
+# Extracting State and computing their flights mean delay
+locationdelay <- delay %>% mutate(State = str_extract(airport_name, "(?<=, )[A-Z]{2}(?=:)"), mean_flight_delay = arr_delay / arr_flights)
+locationdelaysum <- locationdelay %>% 
+  group_by(State) %>% 
+  summarize(
+    mean_delay = sum(arr_delay, na.rm = TRUE) / sum(arr_flights, na.rm = TRUE),
+    n = n(),
+    total_flights = sum(arr_flights, na.rm = TRUE)
+  ) %>%
+  arrange(desc(mean_delay))
+
+# Barplot of top 10 states  in term of mean arrival delay 
+top10_states <- locationdelaysum %>% slice_head(n = 10) %>% arrange(desc(mean_delay))%>% pull(State)
+bottom10_states <- locationdelaysum %>% slice_tail(n = 10) %>% pull(State)
+
+locationdelaysum %>%
+  filter(State %in% top10_states) %>%
+  ggplot(aes(
+    x = State,
+    y = mean_delay
+  )) +
+  geom_col() +
+  theme_minimal() +
+  scale_x_discrete(limits = top10_states) +
+  labs(
+    title = "Arrival Delay Distribution: Top 10 States by Mean Delay",
+    x = "State",
+    y = "Mean Flight Delay (minutes)"
+  )
+
+#Barplot of bottom 10 states in term of mean arrival delay 
+bottom10_states <- locationdelaysum %>% slice_tail(n = 10) %>% pull(State)
+
+locationdelaysum %>%
+  filter(State %in% bottom10_states) %>%
+  ggplot(aes(
+    x = State,
+    y = mean_delay
+  )) +
+  geom_col() +
+  theme_minimal() +
+  scale_x_discrete(limits = bottom10_states) +
+  labs(
+    title = "Arrival Delay Distribution: Bottom 10 States by Mean Delay",
+    x = "State",
+    y = "Mean Flight Delay (minutes)"
+  )
+#Boxplot for Delay Distribution of all states 
+locationdelay %>%
+  ggplot(aes(x = reorder(State, -mean_flight_delay, FUN = median, na.rm = TRUE), y = mean_flight_delay)) +
+  geom_boxplot() +
+  coord_cartesian(ylim = c(0, 75)) +
+  theme_minimal() +
+  labs(title = "TStates by Mean Delay", x = "State", y = "Mean Flight Delay (minutes)") 
+
+
+#Boxplot for top10 airports Delay Distribution and also All Flights in commparison
+airportdelay <- delay %>%
+  group_by(airport_name) %>%
+  summarize(
+    total_flights = sum(arr_flights, na.rm = TRUE)
+  ) %>%
+  arrange(desc(total_flights))
+
+biggestairports <- airportdelay %>% slice_head(n = 10) %>% pull(airport_name)
+
+
+
+airportrows <- delay %>%
+  mutate(mean_flight_delay = arr_delay / arr_flights) %>%
+  filter(airport_name %in% biggestairports, is.finite(mean_flight_delay))
+
+allairportrows <- delay %>%
+  mutate(mean_flight_delay = arr_delay / arr_flights,
+         airport_name = "All Airports") %>%
+  filter(is.finite(mean_flight_delay))
+
+
+combined_airport <- bind_rows(airportrows, allairportrows)
+
+combined_airport %>%
+  ggplot(aes(
+    x = reorder(airport_name, -mean_flight_delay, FUN = median, na.rm = TRUE),
+    y = mean_flight_delay
+  )) +
+  geom_boxplot(outlier.shape = NA) +
+  coord_cartesian(ylim = c(0, 75)) +
+  theme_minimal() +
+  labs(
+    title = "Delay Distribution: 10 Biggest Airports(here not ordered by total flights)",
+    x = "Airport",
+    y = "Mean Flight Delay (minutes)"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+
 # TODO: Add group comparisons (e.g., boxplots across carriers/airports) and 
 # maybe add top 10 most delayed airpoints plots
 # Temporal/seasonal trend analysis (including Covid-19 anomaly checks) -> Ziqi put this part into 03_eda 
