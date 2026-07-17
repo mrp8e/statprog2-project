@@ -26,7 +26,11 @@
 
 **Primarily responsible for:** Research Question 3 (`code/analysis.R` & `index.qmd`), Data Dictionary (`proposal.qmd`) , Explanatory Distribution Analysis (`code/analysis.R`)
 
-\- build and evaluated regression model for RQ3 - produced graphics for RQ3 - build Data Dictionary - started analysis with Explanatory Distribution Analysis
+\- build and evaluated regression model for RQ3 and produced graphics for RQ3
+
+\- build Data Dictionary
+
+\- started analysis with Explanatory Distribution Analysis
 
 **Collaborative tasks:** Source, Licence and Structure of the dataset, Research Question Design
 
