@@ -16,11 +16,16 @@
 
 **Collaborative tasks:**
 
-### Name — Contribution Statement
+### **Ziqi Ang** — Contribution Statement
 
-**Primarily responsible for:**
+**Primarily responsible for:** Prepare Dataset, Research Question 1.3 trend and seasonal analysis, (`code/03_eda.R`)
+\- data glimpse, calculate aggregate statistics, correlation, covariance
+\- visualize the yearly overall trends of each delay cause (static & interactive plots), spot anomaly 
+\- visualize seasonal patterns with heatmap
+\- validate data distributions, measure skewness and kurtosis
+\- investigate hypothesis with quantile regression
 
-**Collaborative tasks:**
+**Collaborative tasks:** Project ideation, research question brainstorming, data quality
 
 ### **Franka Konold** — Contribution Statement
 
