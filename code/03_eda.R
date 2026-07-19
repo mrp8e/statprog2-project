@@ -1,5 +1,5 @@
 # 03_eda.R
-# Exploratory data analysis: discover hidden patterns and trends, spot anomalies, generate hypothesis
+# Exploratory data analysis: discover hidden patterns and trends, spot anomalies, investigate hypothesis
 # Figures are saved to docs/ for inclusion in report.qmd.
 # TODO: add EDA plots and summaries
 
@@ -8,6 +8,7 @@ library(here)
 library(dplyr)
 library(ggplot2)
 library(plotly)
+library(moments)
 library(quantreg)
 
 data <- read_csv(here("data", "raw", "delay_short.csv"))
@@ -188,7 +189,7 @@ ggplot(data,
     linetype = ""
   )
 #===============================================================================
-# compare groups 
+# validate distributions and measure skewness and kurtosis
 # calculate each delay cause ratio
 data <- data %>%
   mutate(
@@ -231,7 +232,15 @@ aes(x = delay_ratio)) +
     y = "Frequency counts"
   )
 
-# right-skewed, approximate to chi-squared distribution
+#-> right-skewed, approximate to chi-squared distribution
+
+# compute skewness and kurtosis score
+moments::kurtosis(data$arr_del15, na.rm = TRUE)
+moments::skewness(data$arr_del15, na.rm = TRUE)
+
+#-> positive right skew
+#-> extremely high kurtosis score. Flight arrival delay data has an incredibly sharp peak with very heavy, long tails
+#-> most flights have minimal delays, but a few flights have extreme, massive delays.
 #===============================================================================
 # aggregate monthly delay data
 monthly_delay <- data %>%
@@ -265,7 +274,7 @@ ggplot(monthly_delay, aes(
   ) +
   theme_minimal()
 #===============================================================================
-# generate hypothesis
+# investigate hypothesis
 model <- rq(arr_del15 ~ nas_ct+late_aircraft_ct, data = data, tau = 0.1)
 #model <- rq(arr_del15 ~ weather_ct, data = data, tau = 0.5)
 #model <- rq(arr_del15 ~ security_ct, data = data, tau = 0.9)
