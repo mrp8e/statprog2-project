@@ -18,12 +18,13 @@
 
 ### **Ziqi Ang** — Contribution Statement
 
-**Primarily responsible for:** Prepare Dataset, Research Question 1.3 trend and seasonal analysis, (`code/03_eda.R`)
-\- data glimpse, calculate aggregate statistics, correlation, covariance
-\- visualize the yearly overall trends of each delay cause (static & interactive plots), spot anomaly 
-\- visualize seasonal patterns with heatmap
-\- validate data distributions, measure skewness and kurtosis
-\- investigate hypothesis with quantile regression
+**Primarily responsible for:** Prepare dataset, trend & seasonal analysis, (`code/03_eda.R`)
+
+\- data glimpse, calculate aggregate statistics, correlation, covariance; evaluate skewness, kurtosis
+
+\- visualize the yearly overall trends (static & interactive plots), spot anomaly, seasonal patterns
+
+\- explore initial hypothesis with quantile regression
 
 **Collaborative tasks:** Project ideation, research question brainstorming, data quality
 
