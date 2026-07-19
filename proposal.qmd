@@ -11,7 +11,7 @@ editor:
     wrap: 72
 ---
 
-## Dataset
+## BTS \| OT Delay
 
 <!-- Describe the dataset: source, licence, dimensions, key variables. -->
 
@@ -37,7 +37,8 @@ requiring a license or proprietary permissions.
 The dataset is structured as a monthly summary grouped by airline and
 airport. Each row in the dataset gives information about how a specific
 carrier performed at a specific airport during a specific month and
-year.
+year. It contains data from 2003 until 2026 for 450 of the 503 airports
+that serve commercial flights in the US.
 
 The 25 variables can be grouped into four categories:
 
@@ -71,7 +72,7 @@ each receive a fractional count of 0.5.
 ### Data Dictionary
 
 | Variable Name | Data Type | Description |
-|:---------------|:---------------|:---------------------------------------|
+|:-----------------|:-----------------|:------------------------------------|
 | **year** | double | Year of the flight. |
 | **month** | double | Month of the flight. |
 | **carrier** | char | Unique two-letter airline carrier code |
@@ -108,9 +109,11 @@ each receive a fractional count of 0.5.
 2.  Is there a relationship between the number of flights (arr_flights)
     and the number of delayed flights (arr_del15)? Can we predict total
     arrival delays based on flight volume and delay causes?
-    
-3.  Can arrival delays (arr_del15) be predicted based on flight characteristics and different delay causes such as carrier, weather, NAS, security, and late aircraft delays? What factors are significant predictors of flight delays?
 
+3.  Can arrival delays (arr_del15) be predicted based on flight
+    characteristics and different delay causes such as carrier, weather,
+    NAS, security, and late aircraft delays? What factors are
+    significant predictors of flight delays?
 
 ## Context and Audience
 
@@ -152,16 +155,19 @@ observations was taken.
 - Variables are correctly typed overall, with month potentially better
   treated as a categorical variable.
 
-- In one row (40418), negative values were identified in `nas_ct`(-0.01) and `nas_delay`(-1). 
-  Both values were treated as missing values (NA).
+- In one row (40418), negative values were identified in `nas_ct`(-0.01)
+  and `nas_delay`(-1). Both values were treated as missing values (NA).
+
 - Delay-cause variables such as `carrier_ct` contain decimal values
   because they represent allocated delay causes rather than strict
   counts.
+
 - Several delay-related variables contain missing values (664–964
   observations), which appear to be structurally driven.
+
 - No obvious inconsistencies were found in categorical variables.
 
-### Data type
+### Data types
 
 This dataset contains:
 
@@ -270,7 +276,6 @@ line charts
 RQ2 - scatterplots - visualize relationship between two variable to
 identify correlation - Heatmaps - correlation among multiple variables -
 correlation analysis
-
 
 RQ3 - Regression - predictors: flights + delay causes - dataset
 observation: `arr_delay`= `carrier_delay`+ `weather_delay`+
