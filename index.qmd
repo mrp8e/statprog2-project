@@ -1,9 +1,11 @@
 ---
-title: "Project Title"
+title: "Airline Punctuality & Delay Causes US"
 author:
-  - "Group Member 1"
-  - "Group Member 2"
-  - "Group Member 3"
+  - "Emil Sitka"
+  - "Luise Killich"
+  - "Ziqi Ang"
+  - "Franka Konold"
+
 date: today
 ---
 
@@ -11,14 +13,36 @@ date: today
 
 <!-- Motivate the dataset and research questions. -->
 
+This project investigates flight delays in the United States using monthly airline performance data. The analysis focuses on delay behaviour across airlines, airports, and time. Statistical methods and visualisations are used to identify patterns in delays and to explore potential factors associated with delayed flights.
+
 ## Data
 
 <!-- Brief description of the dataset. -->
+
+The dataset is structured as a monthly summary grouped by airline and airport and collected from the U.S. federal government. Each row in the dataset gives information about how a specific carrier performed at a specific airport during a specific month and year. Variables include temporal information (year and month), airline and airport identifiers, flight counts, delay statistics, cancellations, diversions, delay durations and summary performance metrics such as on-time and delay rates. A detailed description of all variables is provided in the data dictionary.
 
 ## Results
 
 <!-- Summary of key findings. -->
 
+#### Results of RQ3:
+
+The response variable showed substantial overdispersion (variance \> mean), making a quasi-Poisson regression more appropriate than a standard Poisson model.
+
+Security delay had the strongest positive association with the monthly number of delayed flights, followed by the number of arriving flights. Weather delay, NAS delay, and late aircraft delay showed relatively small positive effects, while carrier delay had a slight negative coefficient after controlling for the other predictors.
+
+VIF values ranged from 2.27 to 5.80, indicating low to moderate multicollinearity without evidence of severe collinearity.
+
+The observed-versus-predicted plot shows that the model captures the overall trend but produces larger prediction errors for observations with very high delay counts.
+
 ## Discussion
 
 <!-- Interpret results, limitations, and next steps. -->
+
+#### Discussion for RQ3: 
+
+The regression results indicate that operational delay measures are associated with the number of delayed flights, but these relationships should not be interpreted as causal effects because both predictors and the response were derived from the same monthly operational data.
+
+The negative coefficient for carrier delay likely reflects overlap and shared variation with the other delay variables rather than a true negative effect.
+
+Although multicollinearity was present, the VIF values suggest that it is unlikely to substantially affect the overall model. The model explains the general pattern of delayed flights but is less accurate for extreme observations, indicating that additional factors influence unusually high delay counts.

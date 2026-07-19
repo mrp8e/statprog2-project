@@ -83,6 +83,104 @@ delay %>%
   )
 
 
+
+# Extracting State and computing their flights mean delay
+locationdelay <- delay %>% mutate(State = str_extract(airport_name, "(?<=, )[A-Z]{2}(?=:)"), mean_flight_delay = arr_delay / arr_flights)
+locationdelaysum <- locationdelay %>% 
+  group_by(State) %>% 
+  summarize(
+    mean_delay = sum(arr_delay, na.rm = TRUE) / sum(arr_flights, na.rm = TRUE),
+    n = n(),
+    total_flights = sum(arr_flights, na.rm = TRUE)
+  ) %>%
+  arrange(desc(mean_delay))
+
+# Barplot of top 10 states  in term of mean arrival delay 
+top10_states <- locationdelaysum %>% slice_head(n = 10) %>% arrange(desc(mean_delay))%>% pull(State)
+bottom10_states <- locationdelaysum %>% slice_tail(n = 10) %>% pull(State)
+
+locationdelaysum %>%
+  filter(State %in% top10_states) %>%
+  ggplot(aes(
+    x = State,
+    y = mean_delay
+  )) +
+  geom_col() +
+  theme_minimal() +
+  scale_x_discrete(limits = top10_states) +
+  labs(
+    title = "Arrival Delay Distribution: Top 10 States by Mean Delay",
+    x = "State",
+    y = "Mean Flight Delay (minutes)"
+  )
+
+#Barplot of bottom 10 states in term of mean arrival delay 
+bottom10_states <- locationdelaysum %>% slice_tail(n = 10) %>% pull(State)
+
+locationdelaysum %>%
+  filter(State %in% bottom10_states) %>%
+  ggplot(aes(
+    x = State,
+    y = mean_delay
+  )) +
+  geom_col() +
+  theme_minimal() +
+  scale_x_discrete(limits = bottom10_states) +
+  labs(
+    title = "Arrival Delay Distribution: Bottom 10 States by Mean Delay",
+    x = "State",
+    y = "Mean Flight Delay (minutes)"
+  )
+#Boxplot for Delay Distribution of all states 
+locationdelay %>%
+  ggplot(aes(x = reorder(State, -mean_flight_delay, FUN = median, na.rm = TRUE), y = mean_flight_delay)) +
+  geom_boxplot() +
+  coord_cartesian(ylim = c(0, 75)) +
+  theme_minimal() +
+  labs(title = "TStates by Mean Delay", x = "State", y = "Mean Flight Delay (minutes)") 
+
+
+#Boxplot for top10 airports Delay Distribution and also All Flights in commparison
+airportdelay <- delay %>%
+  group_by(airport_name) %>%
+  summarize(
+    total_flights = sum(arr_flights, na.rm = TRUE)
+  ) %>%
+  arrange(desc(total_flights))
+
+biggestairports <- airportdelay %>% slice_head(n = 10) %>% pull(airport_name)
+
+
+
+airportrows <- delay %>%
+  mutate(mean_flight_delay = arr_delay / arr_flights) %>%
+  filter(airport_name %in% biggestairports, is.finite(mean_flight_delay))
+
+allairportrows <- delay %>%
+  mutate(mean_flight_delay = arr_delay / arr_flights,
+         airport_name = "All Airports") %>%
+  filter(is.finite(mean_flight_delay))
+
+
+combined_airport <- bind_rows(airportrows, allairportrows)
+
+combined_airport %>%
+  ggplot(aes(
+    x = reorder(airport_name, -mean_flight_delay, FUN = median, na.rm = TRUE),
+    y = mean_flight_delay
+  )) +
+  geom_boxplot(outlier.shape = NA) +
+  coord_cartesian(ylim = c(0, 75)) +
+  theme_minimal() +
+  labs(
+    title = "Delay Distribution: 10 Biggest Airports(here not ordered by total flights)",
+    x = "Airport",
+    y = "Mean Flight Delay (minutes)"
+  ) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+
 # TODO: Add group comparisons (e.g., boxplots across carriers/airports) and 
 # maybe add top 10 most delayed airpoints plots
 # Temporal/seasonal trend analysis (including Covid-19 anomaly checks) -> Ziqi put this part into 03_eda 
@@ -284,3 +382,83 @@ model_stable <- glm(arr_del15 ~ arr_flights + carrier_delay + weather_delay
                     data = data, family = quasipoisson(link = "log"))
 summary(model_stable)
 
+# Visulization: 
+# 1. Predicted vs. Observed Values
+data$predicted <- NA
+data$predicted[complete.cases(data[, vars])] <-
+  predict(model_stable, type = "response")
+
+ggplot(data, aes(x = predicted, 
+                 y = arr_del15, 
+                 text = paste("Predicted:", round(predicted, 1), 
+                              "<br>Observed:", arr_del15, 
+                              "<br>Flights:", arr_flights))) +
+  geom_point(alpha = 0.5, 
+             color = "skyblue", 
+             size = 2) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", 
+              color = "red", linewidth = 1) + 
+  labs(title = "Observed vs. Predicted Delayed Flights", 
+       subtitle = "Quasi-Poission Regression Model", 
+       x = "Predicted Number of Delayed Flights", 
+       y = "Observed Number of Delayed Flights") + 
+  theme_minimal(base_size = 14)
+
+# VIF: Variance Inflation Factor (Multikollinearität)
+vif(model_lm)
+
+# 2. Estimated Regression Coefficients 
+coef_df <- tidy(model_stable, conf.int = TRUE) %>%
+  filter(term != "(Intercept)") %>%
+  mutate(
+    Predictor = case_when(
+      term == "arr_flights" ~ "Number of Arriving Flights",
+      term == "carrier_delay" ~ "Carrier Delay",
+      term == "weather_delay" ~ "Weather Delay",
+      term == "nas_delay" ~ "NAS Delay",
+      term == "late_aircraft_delay" ~ "Late Aircraft Delay",
+      term == "security_delay" ~"Security Delays", 
+      TRUE ~ term
+    )
+  ) %>%
+  arrange(estimate)
+
+coef_df <- coef_df %>%
+  mutate(
+    estimate = estimate * 1000,
+    conf.low = conf.low * 1000,
+    conf.high = conf.high * 1000
+  )
+ggplotly(
+  ggplot(coef_df, aes(x = estimate,
+                         y = reorder(Predictor, estimate),
+                         text = paste0(
+                           "<b>", Predictor, "</b>",
+                           "<br>Estimate: ", round(estimate, 3),
+                           "<br>95% CI: ", round(conf.low, 3),
+                           " to ", round(conf.high, 3)))) +
+  
+  ## confidence intervals
+  geom_errorbarh(aes(xmin = conf.low, xmax = conf.high),
+                 height = 0.15,
+                 linewidth = 1.8,
+                 colour = "black") +
+  
+  ## coefficient estimates
+  geom_point(shape = 21, size = 2, stroke = 0.8, colour = "skyblue") +
+  
+  ## reference line
+  geom_vline(xintercept = 0, colour = "red",
+             linetype = "dashed", linewidth = 0.8) +
+  
+  scale_x_continuous(labels = label_number(accuracy = 0.01), 
+                     expand = expansion(mult = c(0.05, 0.08))) +
+  
+  labs(title = "Estimated Regression Coefficients",
+       subtitle = "Points represent coefficient estimates; horizontal bars show 95% confidence intervals.",
+       x = "Coefficient Estimate (×10⁻³)",
+       y = NULL) + 
+  
+  theme_minimal(), 
+  
+  tooltip = "text")

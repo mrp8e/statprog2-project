@@ -4,25 +4,48 @@
 
 <!-- Fill in after the project is complete. -->
 
-**[Name]** — [files/sections responsible for]
-- [Key task 1]
-- [Key task 2]
-- [Collaborative tasks]
+### Name — Contribution Statement
 
-**[Name]** — [files/sections responsible for]
-- [Key task 1]
-- [Key task 2]
-- [Collaborative tasks]
+**Primarily responsible for:**
 
-**[Name]** — [files/sections responsible for]
-- [Key task 1]
-- [Key task 2]
-- [Collaborative tasks]
+**Collaborative tasks:**
+
+### Name — Contribution Statement
+
+**Primarily responsible for:**
+
+**Collaborative tasks:**
+
+### **Ziqi Ang** — Contribution Statement
+
+**Primarily responsible for:** Prepare dataset, trend & seasonal analysis, (`code/03_eda.R`)
+
+\- data glimpse, calculate aggregate statistics, correlation, covariance; evaluate skewness, kurtosis
+
+\- visualize the yearly overall trends (static & interactive plots), spot anomaly, seasonal patterns
+
+\- explore initial hypothesis with quantile regression
+
+**Collaborative tasks:** Project ideation, research question brainstorming, data quality
+
+### **Franka Konold** — Contribution Statement
+
+**Primarily responsible for:** Research Question 3 (`code/analysis.R` & `index.qmd`), Data Dictionary (`proposal.qmd`) , Explanatory Distribution Analysis (`code/analysis.R`)
+
+\- build and evaluated regression model for RQ3 and produced graphics for RQ3
+
+\- build Data Dictionary
+
+\- started analysis with Explanatory Distribution Analysis
+
+**Collaborative tasks:** Source, Licence and Structure of the dataset, Research Question Design
 
 ## AI Tool Disclosure
 
+```{=html}
 <!-- Complete per the department guidelines:
      https://docs.google.com/document/d/1mQ5YAWKDt9Ax4LvK-wuUzO5XfCI0e-ZGdk49ghb08Ds -->
+```
 
 We used the following AI tools in this project:
 
