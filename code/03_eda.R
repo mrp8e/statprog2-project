@@ -24,7 +24,7 @@ colSums(is.na(data))
 sum(duplicated(data))
 
 # measure relationships of variables
-cor(data$arr_del, data$arr_flights, use = "complete.obs")
+cor(data$arr_del15, data$arr_flights, use = "complete.obs")
 cov(data$weather_ct, data$nas_ct, use = "complete.obs")
 #===============================================================================
 # check unique years
@@ -155,6 +155,14 @@ nas_del_rate<- sum(data$nas_ct, na.rm = TRUE) /total_arrivals
 security_del_rate<-sum(data$security_ct, na.rm = TRUE) /total_arrivals
 late_aircraft_del_rate<-sum(data$late_aircraft_ct, na.rm = TRUE) /total_arrivals
 
+# refined the code block above with Claude
+delay_ct_cols <- c("carrier_ct", "weather_ct", "nas_ct", "security_ct", "late_aircraft_ct")
+
+calculate_del_rates <- data %>%
+  summarise(across(all_of(delay_ct_cols), 
+                   ~ sum(.x, na.rm = TRUE) / total_arrivals,
+                   .names = "{.col}_rate"))
+
 # compute carrier delay rate of each row and median
 data <- data %>%
   mutate(
@@ -162,10 +170,11 @@ data <- data %>%
   ) # calculate carrier delay ratio of each row
 
 carrier_del_median <- median(data$carrier_del_row, na.rm = TRUE)
+#count_freq_table <- table(data$carrier_del_row)
 
 # visualize the carrier delay ratio histogram
 ggplot(data,
-       aes(x = carrier_delay_ratio)) +
+       aes(x = carrier_del_row)) +
   geom_histogram(
     bins = 50,
     fill = "skyblue",
@@ -189,27 +198,15 @@ ggplot(data,
     linetype = ""
   )
 #===============================================================================
-# validate distributions and measure skewness and kurtosis
 # calculate each delay cause ratio
 data <- data %>%
-  mutate(
-    carrier_del_row = carrier_ct / arr_flights,
-    weather_del_row = weather_ct / arr_flights,
-    nas_del_row = nas_ct / arr_flights,
-    security_del_row = security_ct / arr_flights,
-    late_aircraft_del_row = late_aircraft_ct / arr_flights
-  )
-
+  mutate(across(all_of(delay_ct_cols), 
+                ~ .x / arr_flights, 
+                .names = "{.col}_ratio"))
 
 # convert to long format 
 delay_ratio_long <- data %>%
-  select(
-    carrier_del_row,
-    weather_del_row,
-    nas_del_row,
-    security_del_row,
-    late_aircraft_del_row
-  ) %>%
+  select(ends_with("_ratio")) %>%
   pivot_longer(
     cols = everything(),
     names_to = "delay_cause",
