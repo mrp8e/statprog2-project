@@ -16,9 +16,9 @@ For each skill area, describe what your group actually used it for. If you did n
 
 ### Debugging (W3)
 
-*What we did:*
+*What we did:* We fixed errors caused by missing values, undefined objects and plotting issues. We also checked model assumptions and inspected missing data.
 
-*What worked well:*
+*What worked well:* Functions such as `summary()`, `miss_var_summary()`, `vis_miss()` and regression diagnostics helped identify problems quickly.
 
 *What was hard:*
 
@@ -32,7 +32,7 @@ For each skill area, describe what your group actually used it for. If you did n
 
 ### Quarto websites & collaborative coding (W5)
 
-*What we did:*
+*What we did:* We organised the project into R scripts that could later be integrated into the Quarto report.
 
 *What worked well:*
 
@@ -40,7 +40,7 @@ For each skill area, describe what your group actually used it for. If you did n
 
 ### R packages (W6)
 
-*What we did:*
+*What we did:* We did use several existing packages including `tidyverse`, `ggplot2`, `broom`, `MASS` and `plotly`. We did not make new ones.
 
 *What worked well:*
 
@@ -48,15 +48,15 @@ For each skill area, describe what your group actually used it for. If you did n
 
 ### Initial data analysis & data cleaning (W7)
 
-*What we did:*
+*What we did:* We inspected missing values, created new variables (e.g. delay rate, on-time rate), and aggregated airport-level data.
 
 *What worked well:*
 
-*What was hard:*
+*What was hard:* Handling missing values and ensuring ratios were only calculated when flight counts were greater than zero.
 
 ### Reproducibility, open data & renv (W9)
 
-*What we did:*
+*What we did:* We produced an renv file.
 
 *What worked well:*
 
@@ -64,17 +64,17 @@ For each skill area, describe what your group actually used it for. If you did n
 
 ### Analysis & inference strategies (W10)
 
-*What we did:*
+*What we did:* We performed descriptive statistics, correlation analysis, linear regression and Quasi-Poisson regression.
 
-*What worked well:*
+*What worked well:* Testing assumptions before selecting the final regression model improved the reliability of the results.
 
-*What was hard:*
+*What was hard:* Choosing an appropriate model for count data and interpreting regression assumptions required additional research.
 
 ### Communication & visualisation (W11)
 
-*What we did:*
+*What we did:* We created histograms, boxplots, scatterplots, regression coefficient plots and interactive Plotly visualisations.
 
-*What worked well:*
+*What worked well:* The different visualisations clearly communicated relationships between delays, airports and airlines.
 
 *What was hard:*
 
@@ -82,27 +82,43 @@ For each skill area, describe what your group actually used it for. If you did n
 
 Describe 2–3 decisions that had a meaningful effect on your results or workflow.
 
-### Decision 1: \[short title\]
+### Decision 1: Choosing Quasi-Poisson Regression
 
 *What were we deciding between?*
 
+Ordinary Least Squares regression, Poisson regression and Quasi-Poisson regression.
+
 *How did we reason through it?*
+
+The variance of delayed flights was much larger than the mean, indicating overdispersion. Therefore, a Quasi-Poisson model was more appropriate than a standard Poisson model.
 
 *In hindsight, would we decide differently?*
 
-### Decision 2: \[short title\]
+No. The Quasi-Poisson model provided more robust estimates for our count data.
+
+### Decision 2: Creating delay rate instead of only using total delays
 
 *What were we deciding between?*
 
+Comparing airports by total delayed flights or by the proportion of delayed flights.
+
 *How did we reason through it?*
 
+Large airports naturally have more flights, so total delays alone would be misleading. Calculating the delay rate allowed fairer comparisons.
+
 *In hindsight, would we decide differently?*
+
+No. Using both absolute delays and delay rates gave a more complete picture.
 
 ## Workflow & collaboration
 
 *How did we divide work across group members?*
 
+Each group member was responsible for a different part of the analysis, such as data cleaning, exploratory analysis, statistical modelling or visualisation. The individual parts were later combined into one project.
+
 *What branching or Git workflow did we actually use — and did it match the proposal?*
+
+We mainly worked on the main branch, with clear commit messages, so it was understandable what each person did.
 
 *What would we change about how we coordinated?*
 
@@ -110,14 +126,14 @@ Describe 2–3 decisions that had a meaningful effect on your results or workflo
 
 Describe up to 5 significant uses of an LLM tool during the project.
 
-### Usage 1: \[task\]
+### Usage 1: **Debugging R code**
 
-- **Tool / model:**
-- **What it produced:**
-- **What we had to correct or verify:**
+- **Tool / model:** ChatGPT
+- **What it produced:** Suggestions for fixing syntax errors and plotting issues.
+- **What we had to correct or verify:** We verified that the proposed code worked with our dataset and adjusted variable names where necessary.
 
-### Usage 2: \[task\]
+### Usage 2: Writing support 
 
-- **Tool / model:**
-- **What it produced:**
-- **What we had to correct or verify:**
+- **Tool / model:** ChatGPT
+- **What it produced:** Help with improving comments and explanations for the final report.
+- **What we had to correct or verify:** We rewrote parts to accurately reflect our own analysis and findings.
