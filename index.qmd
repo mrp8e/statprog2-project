@@ -6,27 +6,52 @@ author:
   - "Ziqi Ang"
   - "Franka Konold"
 
-format : dashboard
+format:
+  dashboard:
+    scrolling: true
+    orientation: rows
+    theme: vapor
 date: today
 ---
 
-## Introduction
+# Introduction
 
-<!-- Motivate the dataset and research questions. -->
+ Introduction
 
-This project investigates flight delays in the United States using monthly airline performance data. The analysis focuses on delay behaviour across airlines, airports, and time. Statistical methods and visualisations are used to identify patterns in delays and to explore potential factors associated with delayed flights.
+::: {.callout-tip appearance="simple"}
 
-## Data
+# ✈️ Flight Delays in the United States
 
-<!-- Brief description of the dataset. -->
+This dashboard explores monthly flight delays across the United States using publicly available airline performance data. Interactive visualisations and statistical analyses are used to investigate delay patterns across airlines, airports, and time.
 
-The dataset is structured as a monthly summary grouped by airline and airport and collected from the U.S. federal government. Each row in the dataset gives information about how a specific carrier performed at a specific airport during a specific month and year. Variables include temporal information (year and month), airline and airport identifiers, flight counts, delay statistics, cancellations, diversions, delay durations and summary performance metrics such as on-time and delay rates. A detailed description of all variables is provided in the data dictionary.
+:::
+
+## 📊 Dataset
+
+The dataset contains monthly summaries of airline performance collected by the U.S. federal government. Each observation represents the performance of a specific airline at a specific airport during a given month.
+
+The data includes:
+
+- Airline and airport identifiers
+- Year and month
+- Number of arriving flights
+- Delayed, cancelled and diverted flights
+- Delay durations by cause
+- On-time performance measures
+- Overall delay rates
+
+> **Use the navigation tabs above to explore the analyses and visualisations.**
+
 
 # RQ1: Patterns {.scrolling}
 This Page explores descriptive statistics
 
+::: {.panel-tabset}
 
-## Row {height=500px}
+## Spatial and Operational Patterns 
+
+
+
 ```{r}
 #| title: "rq1_1 "
 
@@ -37,110 +62,135 @@ source("./code/02_clean.R")
 source("./code/03_eda.R")
 source("./code/04_analysis.R")
 
-p_rq1_plot1
 ```
 
+
+### Row {height=500px}
+
+#### Column {width=50%}
 ```{r}
-#| title: "rq1_2"
-
-
-p_rq1_plot2
-```
-
-## Row {height=500px}
-
-### Column {width=50%}
-
-```{r}
-#| title: "bottom 10 states"
-p_bot10_states
-```
-
-### Column {width=50%}
-```{r}
-#| title: "top 10 states"
-
-p_top10_states
-```
-
-## Row {.tabset} {height=500px}
-
-```{r}
-#| title: "top 10 airports"
-
-p_top_airports
-```
-
-```{r}
-#| title: "sall states"
-
-p_state_boxplot
-
-```
-
-## Row {height=500px}
-
-### Column {width=50%}
-```{r}
-#| title: "rq1_3"
-
-p_rq1_plot3
-```
-
-### Column {width=50%}
-```{r}
-#| title: "arq1_4"
-
-p_rq1_plot4
-```
-
-## Row {height=500px}
-
-### Column {width=50%}
-```{r}
-#| title: "time plot 1"
-
-p_rq1time_plot1
-```
-
-### Column {width=50%}
-```{r}
-#| title: "time plot 2"
-
-p_rq1time_plot2
-```
-
-## Row {height=500px}
-
-### Column {width=50%}
-```{r}
-#| title: "time plot 3"
+#| title: "Distribution of Delay Ratios by Cause"
 
 p_rq1time_plot3
 ```
 
-### Column {width=50%}
+#### Column {width=50%}
 ```{r}
-#| title: "time plot 4"
+#| title: "Distribution of Carrier Delay Ratio"
+
+p_rq1time_plot2
+```
+
+### Row {.tabset} {height=500px}
+
+```{r}
+#| title: "Q-Q Plot for Arrival Delays"
+
+
+p_rq1_plot3
+```
+
+```{r}
+#| title: "Distribution of all Arrival Delays"
+
+p_rq1_plot2
+
+```
+
+### Row {height=500px}
+
+#### Column {width=50%}
+```{r}
+#| title: "Delay Distribution of 10 biggest Airports compared to all Airports"
+
+p_top_airports
+```
+
+#### Column {width=50%}
+```{r}
+#| title: "Delays by Carrier"
+
+p_rq1_plot4
+```
+
+
+### Row {height=500px}
+
+#### Column {width=50%}
+
+```{r}
+#| title: "Bottom 10 States by mean Arrival Delay"
+p_bot10_states
+```
+
+#### Column {width=50%}
+```{r}
+#| title: "Top 10 States by mean Arrival Delay"
+p_top10_states
+```
+
+
+### Row {height=500px}
+
+::: {style="height:500px; overflow:hidden"}
+
+```{r}
+#| title: "Delay Distribution of all States"
+#| fig-width: 12
+#| fig-height: 5
+#| out-width: "100%"
+#| out-height: "100%"
+
+p_state_boxplot
+```
+
+:::
+
+
+## Temporal Patterns and Observations {.scrolling fill=false}
+
+
+
+### Row {height=500px}
+
+#### Column {width=50%}
+```{r}
+#| title: "Yearly Trend of all Delay Causes"
+
+p_rq1time_plot1
+```
+
+#### Column {width=50%}
+```{r}
+#| title: "Detailed Yearly Trend"
+
+fig
+```
+
+### Row {height=700px}
+
+#### Column{width=50%}
+```{r}
+#| title: "Probability of Delays across Months"
 
 p_rq1time_plot4
 ```
 
-## Row {height=500px}
-
-### Column{width=50%}
+#### Column {width=50%}
 ```{r}
-#| title: "time plot 5"
+#| title: "Operational Delay Counts vs Total Arrival Delays: Quantile(τ=0.1) vs Mean Regressions"
 
 p_rq1time_plot5
 ```
 
-### Column {width=50%}
-```{r}
-#| title: "time plot 6"
+### Discussion
 
-fig
-```
+Observation:
+
+With those Plots we can observe that the mean arrival delay is fluctuating in different years and also shows that some States or airports to a lesser extent also vary in the mean delay of flights arriving there but also in their variance. For example in the temporal development a particular drop can be seen during 2020 which can be attributed to the Corona Virus Pandemic. Also while in the case of airports there seems to be small differences, mainly in the deviation of the delays, when looking at States we can observe bigger differences where the mean Delay of flights landing in New jersey is more than double the mean delay in Montana or Idaho among others. 
+
+
+:::
 
 # RQ2: Correlations
 
@@ -149,7 +199,7 @@ fig
 ### Column {width=50%}
 
 ```{r}
-#| title: "rq2 plot 1"
+#| title: "Relation between total number of flights and number of delayed flights"
 
 p_rq2_plot1
 
@@ -158,16 +208,28 @@ p_rq2_plot1
 ### Column{width=50%}
 
 ```{r}
-#| title: "rq2 plot 2"
+#| title: "Relation between delay rate and total number of arriving flights"
 
 p_rq2_plot2
 
 ```
+
+## Observation 
+
+Conclusion for RQ2:
+
+Flight volume has a strong positive relationship with the absolute number
+of delayed flights. However, it does not significantly affect the delay rate,
+indicating that larger flight volumes lead to more delays in total but not
+necessarily to a higher probability of delay.
+
+
+
 # RQ3: Prediction {.scrolling}
 
 ## Row {height=500px}
 ```{r}
-#| title: "correlation plots"
+#| title: "Correlation Matrix of number of total flights,flights with delays and delay rate"
 corrplot(cor_matrix,
         method = "color",
          addCoef.col = "black")
@@ -178,7 +240,7 @@ corrplot(cor_matrix,
 
 ### Column{width=50%}
 ```{r}
-#| title: "predictive plots"
+#| title: "Regression Diagnostics for absolute Model"
 par(mfrow = c(2, 2))
 plot(model_absolut)
 
@@ -186,7 +248,7 @@ plot(model_absolut)
 
 ### Column{width=50%}
 ```{r}
-#| title: "relative plots"
+#| title: "Regression Diagnostics for relative Model"
 ### Diagnostics for relative delay model
 par(mfrow = c(2, 2))
 plot(model_relative)
@@ -199,7 +261,7 @@ par(mfrow = c(1,1))
 ### Column {width=50%}
 
 ```{r}
-#| title: "rq3 plot 1"
+#| title: "Predicted vs. Observed Values"
 
 print(p_rq3_plot1)
 
@@ -209,7 +271,7 @@ print(p_rq3_plot1)
 ### Column {width=50%}
 
 ```{r}
-#| title: "rq3 plot 2"
+#| title: "Estimated Regression Coefficients"
 
 p_rq3_plot2
 
@@ -222,6 +284,8 @@ p_rq3_plot2
 <!-- Summary of key findings. -->
 
 #### Results of RQ3:
+
+Results:
 
 The response variable showed substantial overdispersion (variance \> mean), making a quasi-Poisson regression more appropriate than a standard Poisson model.
 
@@ -236,6 +300,8 @@ The observed-versus-predicted plot shows that the model captures the overall tre
 <!-- Interpret results, limitations, and next steps. -->
 
 #### Discussion for RQ3: 
+
+Discussion:
 
 The regression results indicate that operational delay measures are associated with the number of delayed flights, but these relationships should not be interpreted as causal effects because both predictors and the response were derived from the same monthly operational data.
 
