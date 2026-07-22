@@ -12,7 +12,6 @@ library(moments)
 library(quantreg)
 
 data <- read_csv(here("data", "raw", "delay_short.csv"))
-#glimpse(data) 
 
 # summarize data
 #summary(data)
@@ -206,7 +205,7 @@ data <- data %>%
 
 # convert to long format 
 delay_ratio_long <- data %>%
-  select(ends_with("_ratio")) %>%
+  dplyr::select(ends_with("_ratio")) %>%
   pivot_longer(
     cols = everything(),
     names_to = "delay_cause",
