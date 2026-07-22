@@ -25,7 +25,7 @@ and understanding a few unexpected or unusual values in the dataset took some ti
 
 ### Version control & remotes (W4)
 
-*What we did:* commits, branching, and staging, basic commands as git status, pull, fetch, rebase, push, .gitignore
+*What we did:* commits, branching, and staging, basic commands as git status, pull, fetch, rebase, push, .gitignore, creating the repository
 
 *What worked well:* no major or complex merge conflicts 
 
@@ -35,10 +35,10 @@ We could have used Git more consistently by committing smaller changes more freq
 
 ### Quarto websites & collaborative coding (W5)
 
-*What we did:* We organised the project into R scripts that could later be integrated into the Quarto report.
+*What we did:* We organised the project into R scripts that could later be integrated into the Quarto report. We also resolved Merge Conflicts using rebase and stashed changes.  Also published our website.
 
 *What worked well:*
-Combine our analysis and results into a structured and reproducible report.
+Combine our analysis and results into a structured and reproducible report. Encountered no issues when publishing the website using github pages.
 
 *What was hard:*
 
