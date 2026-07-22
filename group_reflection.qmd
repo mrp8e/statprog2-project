@@ -20,7 +20,8 @@ For each skill area, describe what your group actually used it for. If you did n
 
 *What worked well:* Functions such as `summary()`, `miss_var_summary()`, `vis_miss()` and regression diagnostics helped identify problems quickly.
 
-*What was hard:* silent errors 
+*What was hard:* silent errors
+and understanding a few unexpected or unusual values in the dataset took some time.
 
 ### Version control & remotes (W4)
 
@@ -29,12 +30,15 @@ For each skill area, describe what your group actually used it for. If you did n
 *What worked well:* no major or complex merge conflicts 
 
 *What was hard:* 
+We didn't encounter any major difficulties.
+We could have used Git more consistently by committing smaller changes more frequently and using branches for larger or independent changes.
 
 ### Quarto websites & collaborative coding (W5)
 
 *What we did:* We organised the project into R scripts that could later be integrated into the Quarto report.
 
 *What worked well:*
+Combine our analysis and results into a structured and reproducible report.
 
 *What was hard:*
 
@@ -44,8 +48,9 @@ For each skill area, describe what your group actually used it for. If you did n
 During the eda period, `moments`, `quantreg` were used. 
 
 *What worked well:*
+The available R packages covered all requirements of our analysis and made data preparation, modelling and visualisation straightforward.
 
-*What was hard:*
+*What was hard:* operating System between windows
 
 ### Initial data analysis & data cleaning (W7)
 
@@ -60,6 +65,7 @@ During the eda period, `moments`, `quantreg` were used.
 *What we did:* We produced an renv file.
 
 *What worked well:*
+The use of `renv` helped to keep track of the required R packages.
 
 *What was hard:* operating system between os and windows 
 
