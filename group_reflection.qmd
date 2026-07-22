@@ -50,7 +50,7 @@ During the eda period, `moments`, `quantreg` were used.
 *What worked well:*
 The available R packages covered all requirements of our analysis and made data preparation, modelling and visualisation straightforward.
 
-*What was hard:* operating System between windows
+*What was hard:* operating System between os and windows
 
 ### Initial data analysis & data cleaning (W7)
 
