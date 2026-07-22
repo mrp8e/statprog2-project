@@ -12,7 +12,7 @@ For each skill area, describe what your group actually used it for. If you did n
 
 *What worked well:*
 
-*What was hard:*
+*What was hard:* 
 
 ### Debugging (W3)
 
@@ -20,15 +20,15 @@ For each skill area, describe what your group actually used it for. If you did n
 
 *What worked well:* Functions such as `summary()`, `miss_var_summary()`, `vis_miss()` and regression diagnostics helped identify problems quickly.
 
-*What was hard:*
+*What was hard:* silent errors 
 
 ### Version control & remotes (W4)
 
-*What we did:*
+*What we did:* commits, branching, and staging, basic commands as git status, pull, fetch, rebase, push, .gitignore
 
-*What worked well:*
+*What worked well:* no major or complex merge conflicts 
 
-*What was hard:*
+*What was hard:* 
 
 ### Quarto websites & collaborative coding (W5)
 
@@ -41,6 +41,7 @@ For each skill area, describe what your group actually used it for. If you did n
 ### R packages (W6)
 
 *What we did:* We did use several existing packages including `tidyverse`, `ggplot2`, `broom`, `MASS` and `plotly`. We did not make new ones.
+During the eda period, `moments`, `quantreg` were used. 
 
 *What worked well:*
 
@@ -60,11 +61,11 @@ For each skill area, describe what your group actually used it for. If you did n
 
 *What worked well:*
 
-*What was hard:*
+*What was hard:* operating system between os and windows 
 
 ### Analysis & inference strategies (W10)
 
-*What we did:* We performed descriptive statistics, correlation analysis, linear regression and Quasi-Poisson regression.
+*What we did:* We performed descriptive statistics, correlation analysis, linear regression and Quasi-Poisson regression. Explore initial hypothesis with quantile regression.
 
 *What worked well:* Testing assumptions before selecting the final regression model improved the reliability of the results.
 
@@ -76,7 +77,7 @@ For each skill area, describe what your group actually used it for. If you did n
 
 *What worked well:* The different visualisations clearly communicated relationships between delays, airports and airlines.
 
-*What was hard:*
+*What was hard:* Design the plots 
 
 ## Key analytical decisions
 
@@ -86,11 +87,13 @@ Describe 2–3 decisions that had a meaningful effect on your results or workflo
 
 *What were we deciding between?*
 
-Ordinary Least Squares regression, Poisson regression and Quasi-Poisson regression.
+Ordinary Least Squares regression, Poisson regression and Quasi-Poisson regression, Quantile regression
 
 *How did we reason through it?*
 
 The variance of delayed flights was much larger than the mean, indicating overdispersion. Therefore, a Quasi-Poisson model was more appropriate than a standard Poisson model.
+
+I chose quantile regression during the eda section to explore initial hypothesis rather focus on the average effect since the dataset was highly skewed. And I considered it is more robust to extreme values and better suited for capturing relations.
 
 *In hindsight, would we decide differently?*
 
@@ -132,8 +135,15 @@ Describe up to 5 significant uses of an LLM tool during the project.
 - **What it produced:** Suggestions for fixing syntax errors and plotting issues.
 - **What we had to correct or verify:** We verified that the proposed code worked with our dataset and adjusted variable names where necessary.
 
-### Usage 2: Writing support 
+### Usage 2: Writing support, plots style
 
 - **Tool / model:** ChatGPT
 - **What it produced:** Help with improving comments and explanations for the final report.
 - **What we had to correct or verify:** We rewrote parts to accurately reflect our own analysis and findings.
+
+### Usage 3: Code refactoring
+
+- **Tool / model:** Claude Sonnet 5
+- **What it produced:** Refine repetitive lines, suggest lines to improve code readability 
+- **What we had to correct or verify:** 
+
