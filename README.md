@@ -6,7 +6,7 @@ This project investigates flight delays in the United States using monthly airli
 
 1.  How do flight delays vary across airlines, airports and over time? What is the distribution of different delay causes across flights, airlines and airports? What temporal and seasonal patterns can be observed?
 
-2.  Is there a relationship between the number of flights (arr_flights) and the number of delayed flights (arr_del15)? Can we predict total arrival delays based on flight volume and delay causes?
+2.  Is there a relationship between the number of flights (arr_flights) and the number of delayed flights (arr_del15)? Can we predict total arrival delays based on flight volume?
 
 3.  Can arrival delays (arr_del15) be predicted based on flight characteristics and different delay causes such as carrier, weather, NAS, security, and late aircraft delays? What factors are significant predictors of flight delays?
 
