@@ -136,6 +136,7 @@ library(tidyverse)
 library(visdat)
 library(skimr)
 library(here)
+source("./code/02_clean.R")
 
 glimpse(delay)
 
