@@ -8,15 +8,17 @@ library(broom)
 library(car)
 library(naniar)
 library(MASS)
+library(scales)
+library(plotly)
 
 # Load clean dataset
 data <- read_csv(here("data", "processed", "data_clean.csv"))
 
 
 # 2. MISSING DATA DIAGNOSTICS
-print("Summary of Missing Values:")
+#print("Summary of Missing Values:")
 miss_var_summary(data)
-data %>% slice_sample(n=10000) %>% 
+p_rq1_plot1 <- data %>% slice_sample(n=10000) %>% 
   vis_miss()
 
 # 3. FEATURE ENGINEERING
@@ -31,19 +33,19 @@ data <- data %>%
   )
 
 # 4. EXPLORATORY DISTRIBUTION ANALYSIS
-print("Summary Statistics for Delay Rate:")
+#print("Summary Statistics for Delay Rate:")
 summary(data$delay_rate)
 
 
 # Plotting the distribution of arrival delays
-ggplot(data, aes(x = arr_delay)) +
+p_rq1_plot2 <- ggplot(data, aes(x = arr_delay)) +
   geom_histogram(bins = 50, fill = "skyblue") +
   theme_minimal() +
   labs(title = "Distribution of Arrival Delays",
        x = "Arrival delay (minutes)", y = "Count")
 
 # Q-Q Plot to visually assess the normality assumption
-ggplot(data, aes(sample = arr_delay)) +
+p_rq1_plot3 <- ggplot(data, aes(sample = arr_delay)) +
   stat_qq() +
   stat_qq_line(color = "red", linewidth = 1.5) +
   theme_minimal() +
@@ -69,7 +71,7 @@ delay %>%
   arrange(desc(mean_delay))
 
 # The boxplot shows the distribution of arrival delays across different carriers
-delay %>%
+p_rq1_plot4 <- delay %>%
   ggplot(aes(
     x = carrier,
     y = arr_delay
@@ -99,7 +101,7 @@ locationdelaysum <- locationdelay %>%
 top10_states <- locationdelaysum %>% slice_head(n = 10) %>% arrange(desc(mean_delay))%>% pull(State)
 bottom10_states <- locationdelaysum %>% slice_tail(n = 10) %>% pull(State)
 
-locationdelaysum %>%
+p_top10_states <- locationdelaysum %>%
   filter(State %in% top10_states) %>%
   ggplot(aes(
     x = State,
@@ -117,7 +119,7 @@ locationdelaysum %>%
 #Barplot of bottom 10 states in term of mean arrival delay 
 bottom10_states <- locationdelaysum %>% slice_tail(n = 10) %>% pull(State)
 
-locationdelaysum %>%
+p_bot10_states <- locationdelaysum %>%
   filter(State %in% bottom10_states) %>%
   ggplot(aes(
     x = State,
@@ -132,7 +134,7 @@ locationdelaysum %>%
     y = "Mean Flight Delay (minutes)"
   )
 #Boxplot for Delay Distribution of all states 
-locationdelay %>%
+p_state_boxplot <- locationdelay %>%
   ggplot(aes(x = reorder(State, -mean_flight_delay, FUN = median, na.rm = TRUE), y = mean_flight_delay)) +
   geom_boxplot() +
   coord_cartesian(ylim = c(0, 75)) +
@@ -164,7 +166,7 @@ allairportrows <- delay %>%
 
 combined_airport <- bind_rows(airportrows, allairportrows)
 
-combined_airport %>%
+p_top_airports <- combined_airport %>%
   ggplot(aes(
     x = reorder(airport_name, -mean_flight_delay, FUN = median, na.rm = TRUE),
     y = mean_flight_delay
@@ -213,7 +215,7 @@ airport_delays <- airport_delays %>%
 
 # This scatterplot examines whether airports with higher flight volumes
 # also experience a higher number of delayed flights in absolute terms.
-ggplot(airport_delays, aes(
+p_rq2_plot1 <- ggplot(airport_delays, aes(
   x = arr_flights,
   y = arr_del15
   )) +
@@ -236,7 +238,7 @@ cor(
 
 # This scatterplot examines the relationship between the number of arriving flights
 # and the proportion of delayed flights.
-ggplot(airport_delays, aes(
+p_rq2_plot2 <- ggplot(airport_delays, aes(
   x = arr_flights,
   y = delay_rate
 )) +
@@ -310,23 +312,23 @@ summary(model_relative)$r.squared
 library(corrplot)
 
 cor_data <- airport_delays %>%
-  select(arr_flights, arr_del15, delay_rate)
+  dplyr::select(arr_flights, arr_del15, delay_rate)
 
 cor_matrix <- cor(cor_data, use = "complete.obs")
 
-corrplot(cor_matrix,
-         method = "color",
-         addCoef.col = "black")
+#corrplot(cor_matrix,
+#         method = "color",
+#         addCoef.col = "black")
 
 ## Regression diagnostics
 
 ### Diagnostics for absolute delay model
 par(mfrow = c(2, 2))
-plot(model_absolut)
+#plot(model_absolut)
 
 ### Diagnostics for relative delay model
 par(mfrow = c(2, 2))
-plot(model_relative)
+#plot(model_relative)
 
 par(mfrow = c(1,1))
 
@@ -359,7 +361,7 @@ data.frame(
 # Baseline Model: Ordinary Least Squares (OLS) Linear Regression
 model_lm <- lm(arr_del15 ~ arr_flights + carrier_delay + weather_delay 
                + nas_delay + late_aircraft_delay, data = data)
-print("Linear Regression Summary:")
+#print("Linear Regression Summary:")
 summary(model_lm)
 
 # ASSUMPTION CHECK: Testing for Poisson suitability (Equidistribution)
@@ -369,8 +371,8 @@ proof_stats <- data %>%
     mean_mu = mean(arr_del15, na.rm = TRUE),
     variance_sigma2 = var(arr_del15, na.rm = TRUE)
   )
-print("Proof of Overdispersion: ")
-print(proof_stats)
+#print("Proof of Overdispersion: ")
+#print(proof_stats)
                      
 # Final Model: Quasi-Poisson Regression
 # We chose the Quasi-Poisson Regression over standard Poisson due to extreme 
@@ -385,10 +387,10 @@ summary(model_stable)
 # Visulization: 
 # 1. Predicted vs. Observed Values
 data$predicted <- NA
-data$predicted[complete.cases(data[, vars])] <-
-  predict(model_stable, type = "response")
+data$predicted <-
+  predict(model_stable,newdata = data, type = "response")
 
-ggplot(data, aes(x = predicted, 
+p_rq3_plot1 <- ggplot(data, aes(x = predicted, 
                  y = arr_del15, 
                  text = paste("Predicted:", round(predicted, 1), 
                               "<br>Observed:", arr_del15, 
@@ -429,7 +431,7 @@ coef_df <- coef_df %>%
     conf.low = conf.low * 1000,
     conf.high = conf.high * 1000
   )
-ggplotly(
+p_rq3_plot2 <- ggplotly(
   ggplot(coef_df, aes(x = estimate,
                          y = reorder(Predictor, estimate),
                          text = paste0(

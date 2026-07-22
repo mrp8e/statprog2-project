@@ -6,6 +6,7 @@ author:
   - "Ziqi Ang"
   - "Franka Konold"
 
+format : dashboard
 date: today
 ---
 
@@ -20,6 +21,201 @@ This project investigates flight delays in the United States using monthly airli
 <!-- Brief description of the dataset. -->
 
 The dataset is structured as a monthly summary grouped by airline and airport and collected from the U.S. federal government. Each row in the dataset gives information about how a specific carrier performed at a specific airport during a specific month and year. Variables include temporal information (year and month), airline and airport identifiers, flight counts, delay statistics, cancellations, diversions, delay durations and summary performance metrics such as on-time and delay rates. A detailed description of all variables is provided in the data dictionary.
+
+# RQ1: Patterns {.scrolling}
+This Page explores descriptive statistics
+
+
+## Row {height=500px}
+```{r}
+#| title: "rq1_1 "
+
+
+
+source("./code/01_download.R")
+source("./code/02_clean.R")
+source("./code/03_eda.R")
+source("./code/04_analysis.R")
+
+p_rq1_plot1
+```
+
+```{r}
+#| title: "rq1_2"
+
+
+p_rq1_plot2
+```
+
+## Row {height=500px}
+
+### Column {width=50%}
+
+```{r}
+#| title: "bottom 10 states"
+p_bot10_states
+```
+
+### Column {width=50%}
+```{r}
+#| title: "top 10 states"
+
+p_top10_states
+```
+
+## Row {.tabset} {height=500px}
+
+```{r}
+#| title: "top 10 airports"
+
+p_top_airports
+```
+
+```{r}
+#| title: "sall states"
+
+p_state_boxplot
+
+```
+
+## Row {height=500px}
+
+### Column {width=50%}
+```{r}
+#| title: "rq1_3"
+
+p_rq1_plot3
+```
+
+### Column {width=50%}
+```{r}
+#| title: "arq1_4"
+
+p_rq1_plot4
+```
+
+## Row {height=500px}
+
+### Column {width=50%}
+```{r}
+#| title: "time plot 1"
+
+p_rq1time_plot1
+```
+
+### Column {width=50%}
+```{r}
+#| title: "time plot 2"
+
+p_rq1time_plot2
+```
+
+## Row {height=500px}
+
+### Column {width=50%}
+```{r}
+#| title: "time plot 3"
+
+p_rq1time_plot3
+```
+
+### Column {width=50%}
+```{r}
+#| title: "time plot 4"
+
+p_rq1time_plot4
+```
+
+## Row {height=500px}
+
+### Column{width=50%}
+```{r}
+#| title: "time plot 5"
+
+p_rq1time_plot5
+```
+
+### Column {width=50%}
+```{r}
+#| title: "time plot 6"
+
+fig
+```
+
+# RQ2: Correlations
+
+## Row {height=500px}
+
+### Column {width=50%}
+
+```{r}
+#| title: "rq2 plot 1"
+
+p_rq2_plot1
+
+```
+
+### Column{width=50%}
+
+```{r}
+#| title: "rq2 plot 2"
+
+p_rq2_plot2
+
+```
+# RQ3: Prediction {.scrolling}
+
+## Row {height=500px}
+```{r}
+#| title: "correlation plots"
+corrplot(cor_matrix,
+        method = "color",
+         addCoef.col = "black")
+
+```
+
+## Row {height=500px}
+
+### Column{width=50%}
+```{r}
+#| title: "predictive plots"
+par(mfrow = c(2, 2))
+plot(model_absolut)
+
+```
+
+### Column{width=50%}
+```{r}
+#| title: "relative plots"
+### Diagnostics for relative delay model
+par(mfrow = c(2, 2))
+plot(model_relative)
+
+par(mfrow = c(1,1))
+```
+
+## Row {height=500px}
+
+### Column {width=50%}
+
+```{r}
+#| title: "rq3 plot 1"
+
+print(p_rq3_plot1)
+
+
+```
+
+### Column {width=50%}
+
+```{r}
+#| title: "rq3 plot 2"
+
+p_rq3_plot2
+
+
+
+```
 
 ## Results
 

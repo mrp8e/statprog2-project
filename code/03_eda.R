@@ -12,10 +12,10 @@ library(moments)
 library(quantreg)
 
 data <- read_csv(here("data", "raw", "delay_short.csv"))
-glimpse(data) 
+#glimpse(data) 
 
 # summarize data
-summary(data)
+#summary(data)
 
 # check missing values
 colSums(is.na(data))
@@ -36,7 +36,7 @@ is_month_complete <-data %>%
   summarise(
     missing_months = paste(setdiff(1:12, unique(month)), collapse = ", ")
   )
-print(is_month_complete, n = Inf) # print years with incomplete months
+#print(is_month_complete, n = Inf) # print years with incomplete months
 
 # define delay_causes
 delay_causes <- c("carrier_delay", "weather_delay", "nas_delay",
@@ -58,7 +58,7 @@ yearly_long <- yearly_df %>%
   )
 
 # plot yearly trends of each delay cause
-ggplot(yearly_long, aes(x = year, y = total_delay_minutes, 
+p_rq1time_plot1 <- ggplot(yearly_long, aes(x = year, y = total_delay_minutes, 
                         color = delay_cause, group = delay_cause)) +
   geom_line() +
   geom_point() +
@@ -173,7 +173,7 @@ carrier_del_median <- median(data$carrier_del_row, na.rm = TRUE)
 #count_freq_table <- table(data$carrier_del_row)
 
 # visualize the carrier delay ratio histogram
-ggplot(data,
+p_rq1time_plot2 <- ggplot(data,
        aes(x = carrier_del_row)) +
   geom_histogram(
     bins = 50,
@@ -214,7 +214,7 @@ delay_ratio_long <- data %>%
   )
 
 # compare each distributions 
-ggplot(delay_ratio_long,
+p_rq1time_plot3 <- ggplot(delay_ratio_long,
 aes(x = delay_ratio)) +
   geom_histogram(
     bins = 50,
@@ -252,7 +252,7 @@ monthly_delay <- data %>%
   )
 
 # plot heatmap to detect seasonal pattern
-ggplot(monthly_delay, aes(
+p_rq1time_plot4 <- ggplot(monthly_delay, aes(
   x = factor(month),
   y = factor(year),
   fill = delay_ratio
@@ -277,7 +277,7 @@ model <- rq(arr_del15 ~ nas_ct+late_aircraft_ct, data = data, tau = 0.1)
 #model <- rq(arr_del15 ~ security_ct, data = data, tau = 0.9)
 summary(model)
 
-ggplot(data, aes(nas_ct+late_aircraft_ct, arr_del15)) +
+p_rq1time_plot5 <- ggplot(data, aes(nas_ct+late_aircraft_ct, arr_del15)) +
   geom_point(size = 0.01) + 
   geom_abline(intercept=coef(model)[1], slope=coef(model)[2]) +
   geom_smooth(method="lm", se=F)
