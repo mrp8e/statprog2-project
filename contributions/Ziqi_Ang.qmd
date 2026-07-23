@@ -1,0 +1,53 @@
+---
+title: "Individual contribution statement"
+author: "Ziqi"
+format: pdf
+editor: visual
+---
+
+## **Ziqi Ang** — Contribution Statement
+
+**Primarily responsible for:** Prepare dataset, trend & seasonal analysis, (`code/03_eda.R`)
+
+\- data glimpse, calculate aggregate statistics, correlation, covariance; evaluate skewness, kurtosis
+
+\- visualize the yearly overall trends (static & interactive plots), spot anomaly, seasonal patterns
+
+\- explore initial hypothesis with quantile regression
+
+**Collaborative tasks:** Project ideation, research question brainstorming, data quality
+
+### Reference
+
+-   [ggplot2](https://ggplot2.tidyverse.org/)
+
+-   [tidyverse](https://style.tidyverse.org/syntax.html)
+
+-   [correlation](https://corrr.tidymodels.org/reference/index.html){.uri}
+
+-   [setdiff](https://de.mathworks.com/help/matlab/ref/double.setdiff.html)
+
+-   [Histograms and frequency polygons](https://ggplot2.tidyverse.org/reference/geom_histogram.html)
+
+-   [R quantile regression](https://www.r-bloggers.com/2019/01/quantile-regression-in-r-2/)
+
+-   [R moments package](https://cran.r-project.org/web/packages/moments/moments.pdf)
+
+### AI Tool Disclosure
+
+```{=html}
+<!-- Complete per the department guidelines:
+     https://docs.google.com/document/d/1mQ5YAWKDt9Ax4LvK-wuUzO5XfCI0e-ZGdk49ghb08Ds -->
+```
+
+I used the following AI tools in this project:
+
++--------------------------+--------------------------------+-----------------------------------------------------------------------------------------------------------------+
+| Tool                     | Purpose                        | Scope                                                                                                           |
++==========================+================================+=================================================================================================================+
+| ChatGPT-5 (free license) | Debug, generate plots template | Fix version control issue, read error messages; plots stylistic support (parameters were adjusted and reviewed) |
+|                          |                                |                                                                                                                 |
+| Claude, Sonnet 5, Medium | Code refactoring               | Reduce repetitive lines, suggest lines                                                                          |
++--------------------------+--------------------------------+-----------------------------------------------------------------------------------------------------------------+
+
+*"I hereby confirm that I have written the part of this work myself. During the project, I mainly used ChatGPT-5 for debugging, generating the interactive plot template according to my specifications; Claude Sonnet 5 for improving code lines, reducing repetitiveness, suggesting code lines. Those suggestions were not adopted blindly but manually reviewed, adjusted, documented and tested."*
