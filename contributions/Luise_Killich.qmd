@@ -1,0 +1,14 @@
+---
+title: "Luise Killich - Contribution Statement"
+format: pdf
+---
+**Primarily responsible for:** Data Cleaning (`02_clean.R`), Research Question 2 (`code/analysis.R`)
+
+\- Reduced and cleaned the dataset, including handling missing and unusual values
+
+\- Investigated the relationship between delay rates and flight volume using correlation and regression analyses
+
+\- Created visualisations and interpreted the results for Research Question 2
+
+**Collaborative tasks:** Initital Proposal developmet, Refining the Research Questions
+
