@@ -4,11 +4,17 @@
 
 <!-- Fill in after the project is complete. -->
 
-### Name — Contribution Statement
+### Luise Killich — Contribution Statement
+ 
+**Primarily responsible for:** Data Cleaning (`02_clean.R`), Research Question 2 (`code/analysis.R`)
 
-**Primarily responsible for:**
+\- Reduced and cleaned the dataset, including handling missing and unusual values
 
-**Collaborative tasks:**
+\- Investigated the relationship between delay rates and flight volume using correlation and regression analyses
+
+\- Created visualisations and interpreted the results for Research Question 2
+
+**Collaborative tasks:** Initital Proposal developmet, Refining the Research Questions
 
 ### Emil Sitka — Contribution Statement
 
