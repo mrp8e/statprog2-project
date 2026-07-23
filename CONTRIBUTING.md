@@ -10,11 +10,17 @@
 
 **Collaborative tasks:**
 
-### Name — Contribution Statement
+### Emil Sitka — Contribution Statement
 
-**Primarily responsible for:**
+**Primarily responsible for:** dashboard layout and integration of plots(`index.qmd`), plots for Research Question 1 (`code/04_analysis.R`)
 
-**Collaborative tasks:**
+\- divide data entries by state and visualize airport/state-related patterns
+
+\- create dashboard layout and integrate all plots and observations
+
+\- reviewed rendered and published final website design
+
+**Collaborative tasks:** brainstorming for data structure/cleanup, website structure discussion
 
 ### **Ziqi Ang** — Contribution Statement
 
